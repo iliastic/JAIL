@@ -1,10 +1,10 @@
 import React from 'react'
 import { StyleSheet, Text, View} from 'react-native'
 
-const ListScreen = () => {
+const InfoScreen = () => {
     return (
         <View style={styles.container}>
-            <Text>Welcome to ListScreen</Text>
+            <Text>Welcome to InfoScreen</Text>
         </View>
     )
 }
@@ -18,4 +18,4 @@ const styles = StyleSheet.create({
     },
 })
 
-export default ListScreen
+export default InfoScreen

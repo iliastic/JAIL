@@ -4,7 +4,7 @@ import TabNavigator from './navigation/TabNavigator'
 
 const App = () => {
   return (
-    <TabNavigator />
+      <TabNavigator />
   )
 }
 
