@@ -11,16 +11,17 @@
     "@react-navigation/bottom-tabs": "^5.0.0-alpha.32",
     "@react-navigation/native": "^5.0.0-alpha.22",
     "expo": "~36.0.0",
+    "firebase": "^7.6.1",
     "react": "~16.9.0",
     "react-dom": "~16.9.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-36.0.0.tar.gz",
     "react-native-gesture-handler": "^1.5.3",
     "react-native-reanimated": "^1.4.0",
+    "react-native-safe-area-context": "0.6.0",
     "react-native-screens": "^1.0.0-alpha.23",
     "react-native-web": "~0.11.7",
     "react-navigation": "^4.0.10",
-    "react-navigation-tabs": "^2.7.0",
-    "react-native-safe-area-context": "0.6.0"
+    "react-navigation-tabs": "^2.7.0"
   },
   "devDependencies": {
     "babel-preset-expo": "~8.0.0",
