@@ -1,13 +1,14 @@
 import React, {useEffect, useState} from 'react'
-import { Button, StyleSheet, View } from 'react-native'
+import { Button, StyleSheet, View, Modal, TouchableOpacity, Image, Text } from 'react-native'
 import MapView, { Marker, PROVIDER_GOOGLE } from 'react-native-maps'
 
 import markerIcon from '../assets/marker.png'
-import ShopInfo from './ShopInfo'
+import xclose from '../assets/xclose.png'
 
 const Map = props => {
     const [markerId, setMarkerId] = useState('')
     const [markerData, setMarkerData] = useState(undefined)
+    const [visible, setVisible] = useState(true)
 
     useEffect(() => {
         let markerState = props.data.find(target => {
@@ -36,7 +37,8 @@ const Map = props => {
                         image={markerIcon}
                         key={info.key}
                         onPress={() => {
-                            setMarkerId(info.key)          
+                            setMarkerId(info.key)  
+                            setVisible(true)        
                         }}
                     >
                     </Marker>
@@ -45,11 +47,60 @@ const Map = props => {
         </MapView>
             {markerData !== undefined &&
               <View>
-                <ShopInfo data={markerData} />
+                <Modal
+             animationType='slide'
+             transparent={true}
+             visible={visible}
+            >
+                <TouchableOpacity style={styles.close} onPress={() => {setVisible(false)}}>
+                    <Image source={xclose} />
+                </TouchableOpacity>
+                <View style={styles.header}>
+                    <Text style={styles.title}>{markerData.name}</Text>
+                    <Text style={styles.hours}>{markerData.hours[1]}</Text>
+                </View>
+                <Text style={styles.adres}>{markerData.adres}</Text>
+                <View style={styles.score}></View>
+                <Text style={styles.ratingtext}>coffee beans</Text>
+                <View style={styles.ratingbar}></View>
+                <Text style={styles.ratingtext}>alternative food</Text>
+                <View style={styles.ratingbar}></View>
+                <Text style={styles.ratingtext}>packaging</Text>
+                <View style={styles.ratingbar}></View>
+                <Text style={styles.ratingtext}>waste management</Text>
+                <View style={styles.ratingbar}></View>
+                <Text style={styles.ratingtext}>local economy</Text>
+                <View style={styles.ratingbar}></View>
+                <Text style={styles.ratingtext}>social impact</Text>
+                <View style={styles.ratingbar}></View>
+                <Text style={styles.ratingtext}>sustainability{'\n'} awareness</Text>
+                <View style={styles.ratingbar}></View>
+                <Button style={styles.website} title='visit website'/>
+            </Modal>
               </View>
             }
       </View>
     )}
+
+const styles = StyleSheet.create({
+  close: {
+    alignSelf: 'flex-end',
+    padding: 10
+  },
+  header: {
+      flexDirection: 'row',
+      padding: 10,
+      marginBottom: 10,
+      borderBottomColor: '#C0B8B8',
+      borderBottomWidth: 1,
+  },
+  title: {
+      fontSize: 25,
+  },
+  hours: {
+      marginLeft: 'auto'
+  }
+})
 
 const generatedMap = [
     {
