@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react'
-import { Button, StyleSheet } from 'react-native'
+import { Button, StyleSheet, View } from 'react-native'
 import MapView, { Marker, PROVIDER_GOOGLE } from 'react-native-maps'
 
 import markerIcon from '../assets/marker.png'
@@ -17,6 +17,7 @@ const Map = props => {
     })
 
     return (
+      <View style={StyleSheet.absoluteFillObject}>
         <MapView 
             initialRegion={{
                 latitude: 51.2182,
@@ -24,7 +25,7 @@ const Map = props => {
                 latitudeDelta: 0.08,
                 longitudeDelta: 0.08,
             }}
-            style={styles.map}
+            style={StyleSheet.absoluteFillObject}
             customMapStyle={generatedMap}
             provider={PROVIDER_GOOGLE}
             >
@@ -41,20 +42,14 @@ const Map = props => {
                     </Marker>
                 )
             })}
-            {markerData !== undefined &&
-                <ShopInfo data={markerData} />
-            }
         </MapView>
+            {markerData !== undefined &&
+              <View>
+                <ShopInfo data={markerData} />
+              </View>
+            }
+      </View>
     )}
-
-const styles = StyleSheet.create({
-    map: {
-        flex: 1,
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center'
-    },
-})
 
 const generatedMap = [
     {

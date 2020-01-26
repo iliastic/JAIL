@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, Button, StyleSheet, Image ,Dimensions} from 'react-native'
+import { View, Text, Button, StyleSheet, Image } from 'react-native'
 
 import xclose from '../assets/xclose.png'
 
@@ -36,11 +36,14 @@ const ShopInfo = props => {
 
 const styles = StyleSheet.create({
     card: {
-        marginHorizontal: '10%',
-        width: '80%',
+        width: '90%',
         backgroundColor: '#FFFFFF',
         padding: 12,
-        borderRadius: 35
+        borderRadius: 35,
+        position: 'absolute',
+        left: '5%',
+        marginVertical: '20%'
+
     },
     close: {
         alignSelf: 'flex-end'
