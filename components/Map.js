@@ -46,12 +46,13 @@ const Map = props => {
             })}
         </MapView>
             {markerData !== undefined &&
-              <View>
-                <Modal
-             animationType='slide'
+          <View>
+            <Modal
+             animationType='fade'
              transparent={true}
              visible={visible}
             >
+              <View style={styles.container}>
                 <TouchableOpacity style={styles.close} onPress={() => {setVisible(false)}}>
                     <Image source={xclose} />
                 </TouchableOpacity>
@@ -76,13 +77,22 @@ const Map = props => {
                 <Text style={styles.ratingtext}>sustainability{'\n'} awareness</Text>
                 <View style={styles.ratingbar}></View>
                 <Button style={styles.website} title='visit website'/>
-            </Modal>
               </View>
+            </Modal>
+          </View>
             }
       </View>
     )}
 
 const styles = StyleSheet.create({
+  container: {
+    width: '80%',
+    height: '70%',
+    marginHorizontal: '10%',
+    marginVertical: '15%',
+    backgroundColor: '#ffffff',
+    padding: 15
+  },
   close: {
     alignSelf: 'flex-end',
     padding: 10
