@@ -1,17 +1,19 @@
 import React, {useEffect, useState} from 'react'
 import { Button, StyleSheet, View, Modal, TouchableOpacity, Image, Text, Platform } from 'react-native'
 import MapView, { Marker, PROVIDER_GOOGLE } from 'react-native-maps'
+import * as WebBrowser from 'expo-web-browser'
 
 import markerIcon from '../assets/marker.png'
 import xclose from '../assets/xclose.png'
 import ratingbar from '../assets/ratingbar.png'
+import scorebar from '../assets/scorebar.png'
 
 const Map = props => {
     const [markerId, setMarkerId] = useState('')
     const [markerData, setMarkerData] = useState(undefined)
     const [visible, setVisible] = useState(true)
 
-    const handleWidth = rating => {
+    const handleRating = rating => {
       let percent = rating * 20
       let width = percent * 0.7
       return (
@@ -20,6 +22,22 @@ const Map = props => {
           marginRight: 70 - width,
         }
       )
+    }
+
+    const handleScore = rating => {
+      let percent = rating * 20
+      let width = percent * 2.5
+      return (
+        {
+          width: width,
+          marginRight: 250- width,
+        }
+        )
+    }
+    
+    const handleWebsite = async () => {
+      url = markerData.website
+      await WebBrowser.openBrowserAsync(url)
     }
 
     useEffect(() => {
@@ -73,38 +91,38 @@ const Map = props => {
                     <Text style={styles.hours}>{markerData.hours[1]}</Text>
                 </View>
                 <Text style={styles.adres}>{markerData.adres}</Text>
-                <View style={styles.score}></View>
+                <View style={[styles.score, handleScore(markerData.score)]}><Image source={scorebar} alt='scorebar' style={styles.scorebar}/></View>
                 <View style={styles.ratingcontainer}>
                   <View style={styles.rating}>
                     <Text style={styles.ratingtext}>coffee beans</Text>
-                    <View style={[styles.ratingbar, handleWidth(markerData.ratingBeans)]}><Image source={ratingbar} alt='rating coffee' style={styles.ratingimg}/></View>
+                    <View style={[styles.ratingbar, handleRating(markerData.ratingBeans)]}><Image source={ratingbar} alt='rating coffee' style={styles.ratingimg}/></View>
                   </View>
                   <View style={styles.rating}>
                     <Text style={styles.ratingtext}>alternative food</Text>
-                    <View style={[styles.ratingbar, handleWidth(markerData.ratingFood)]}><Image source={ratingbar} alt='rating coffee' style={styles.ratingimg}/></View>
+                    <View style={[styles.ratingbar, handleRating(markerData.ratingFood)]}><Image source={ratingbar} alt='rating coffee' style={styles.ratingimg}/></View>
                   </View>
                   <View style={styles.rating}>
                     <Text style={styles.ratingtext}>packaging</Text>
-                    <View style={[styles.ratingbar, handleWidth(markerData.ratingPackage)]}><Image source={ratingbar} alt='rating coffee' style={styles.ratingimg}/></View>
+                    <View style={[styles.ratingbar, handleRating(markerData.ratingPackage)]}><Image source={ratingbar} alt='rating coffee' style={styles.ratingimg}/></View>
                   </View>
                   <View style={styles.rating}>
                     <Text style={styles.ratingtext}>waste management</Text>
-                    <View style={[styles.ratingbar, handleWidth(markerData.ratingWaste)]}><Image source={ratingbar} alt='rating coffee' style={styles.ratingimg}/></View>
+                    <View style={[styles.ratingbar, handleRating(markerData.ratingWaste)]}><Image source={ratingbar} alt='rating coffee' style={styles.ratingimg}/></View>
                   </View>
                   <View style={styles.rating}>
                     <Text style={styles.ratingtext}>local economy</Text>
-                    <View style={[styles.ratingbar, handleWidth(markerData.ratingEconomy)]}><Image source={ratingbar} alt='rating coffee' style={styles.ratingimg}/></View>
+                    <View style={[styles.ratingbar, handleRating(markerData.ratingEconomy)]}><Image source={ratingbar} alt='rating coffee' style={styles.ratingimg}/></View>
                   </View>
                   <View style={styles.rating}>
                     <Text style={styles.ratingtext}>social impact</Text>
-                    <View style={[styles.ratingbar, handleWidth(markerData.ratingSocial)]}><Image source={ratingbar} alt='rating coffee' style={styles.ratingimg}/></View>
+                    <View style={[styles.ratingbar, handleRating(markerData.ratingSocial)]}><Image source={ratingbar} alt='rating coffee' style={styles.ratingimg}/></View>
                   </View>
                   <View style={styles.rating}>
                     <Text style={styles.ratingtext}>sustainability{'\n'} awareness</Text>
-                    <View style={[styles.ratingbar, handleWidth(markerData.ratingAwareness)]}><Image source={ratingbar} alt='rating coffee' style={styles.ratingimg}/></View>
+                    <View style={[styles.ratingbar, handleRating(markerData.ratingAwareness)]}><Image source={ratingbar} alt='rating coffee' style={styles.ratingimg}/></View>
                   </View>
                 </View>
-                <Button style={styles.website} title='visit website'/>
+                <Button style={styles.website} title='visit website' onPress={handleWebsite}/>
               </View>
             </Modal>
           </View>
@@ -135,25 +153,23 @@ const styles = StyleSheet.create({
   },
   title: {
       fontSize: 25,
+      marginTop: 10
   },
   hours: {
-      marginLeft: 'auto'
+      marginLeft: 'auto',
   },
   adres: {
-    fontSize: 12
+    fontSize: 12,
+    marginBottom: 10,
   },
   rating: {
     flexDirection: 'row',
   },
   ratingcontainer: {
     width: '90%',
-    borderTopColor: '#C0B8B8',
-    borderTopWidth: 1,
     marginTop: 10
   },
   ratingbar:{
-    width: 70,
-    marginRight: 14,
     height: 10,
     backgroundColor: '#784D4D',
     marginTop: 8,
@@ -162,6 +178,12 @@ const styles = StyleSheet.create({
     fontSize: 14,
     marginVertical: 5,
     marginRight: 'auto'
+  },
+  score: {
+    alignSelf: 'center',
+    height: 20,
+    backgroundColor: '#784D4D',
+    borderRadius: 7
   }
 })
 
