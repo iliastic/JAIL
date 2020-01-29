@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
     scrollcontainer: {
         padding: 8,
         paddingTop: 30,
-        backgroundColor: '#ffffff',
+        backgroundColor: 'rgba(255,255,255, 0.9)',
     },
     header: {
         alignSelf: 'center',

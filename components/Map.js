@@ -1,14 +1,26 @@
 import React, {useEffect, useState} from 'react'
-import { Button, StyleSheet, View, Modal, TouchableOpacity, Image, Text } from 'react-native'
+import { Button, StyleSheet, View, Modal, TouchableOpacity, Image, Text, Platform } from 'react-native'
 import MapView, { Marker, PROVIDER_GOOGLE } from 'react-native-maps'
 
 import markerIcon from '../assets/marker.png'
 import xclose from '../assets/xclose.png'
+import ratingbar from '../assets/ratingbar.png'
 
 const Map = props => {
     const [markerId, setMarkerId] = useState('')
     const [markerData, setMarkerData] = useState(undefined)
     const [visible, setVisible] = useState(true)
+
+    const handleWidth = rating => {
+      let percent = rating * 20
+      let width = percent * 0.7
+      return (
+        {
+          width: width,
+          marginRight: 70 - width,
+        }
+      )
+    }
 
     useEffect(() => {
         let markerState = props.data.find(target => {
@@ -48,7 +60,7 @@ const Map = props => {
             {markerData !== undefined &&
           <View>
             <Modal
-             animationType='fade'
+             animationType={Platform.OS === 'ios' ? 'slide' : 'fade'}
              transparent={true}
              visible={visible}
             >
@@ -62,20 +74,36 @@ const Map = props => {
                 </View>
                 <Text style={styles.adres}>{markerData.adres}</Text>
                 <View style={styles.score}></View>
-                <Text style={styles.ratingtext}>coffee beans</Text>
-                <View style={styles.ratingbar}></View>
-                <Text style={styles.ratingtext}>alternative food</Text>
-                <View style={styles.ratingbar}></View>
-                <Text style={styles.ratingtext}>packaging</Text>
-                <View style={styles.ratingbar}></View>
-                <Text style={styles.ratingtext}>waste management</Text>
-                <View style={styles.ratingbar}></View>
-                <Text style={styles.ratingtext}>local economy</Text>
-                <View style={styles.ratingbar}></View>
-                <Text style={styles.ratingtext}>social impact</Text>
-                <View style={styles.ratingbar}></View>
-                <Text style={styles.ratingtext}>sustainability{'\n'} awareness</Text>
-                <View style={styles.ratingbar}></View>
+                <View style={styles.ratingcontainer}>
+                  <View style={styles.rating}>
+                    <Text style={styles.ratingtext}>coffee beans</Text>
+                    <View style={[styles.ratingbar, handleWidth(markerData.ratingBeans)]}><Image source={ratingbar} alt='rating coffee' style={styles.ratingimg}/></View>
+                  </View>
+                  <View style={styles.rating}>
+                    <Text style={styles.ratingtext}>alternative food</Text>
+                    <View style={[styles.ratingbar, handleWidth(markerData.ratingFood)]}><Image source={ratingbar} alt='rating coffee' style={styles.ratingimg}/></View>
+                  </View>
+                  <View style={styles.rating}>
+                    <Text style={styles.ratingtext}>packaging</Text>
+                    <View style={[styles.ratingbar, handleWidth(markerData.ratingPackage)]}><Image source={ratingbar} alt='rating coffee' style={styles.ratingimg}/></View>
+                  </View>
+                  <View style={styles.rating}>
+                    <Text style={styles.ratingtext}>waste management</Text>
+                    <View style={[styles.ratingbar, handleWidth(markerData.ratingWaste)]}><Image source={ratingbar} alt='rating coffee' style={styles.ratingimg}/></View>
+                  </View>
+                  <View style={styles.rating}>
+                    <Text style={styles.ratingtext}>local economy</Text>
+                    <View style={[styles.ratingbar, handleWidth(markerData.ratingEconomy)]}><Image source={ratingbar} alt='rating coffee' style={styles.ratingimg}/></View>
+                  </View>
+                  <View style={styles.rating}>
+                    <Text style={styles.ratingtext}>social impact</Text>
+                    <View style={[styles.ratingbar, handleWidth(markerData.ratingSocial)]}><Image source={ratingbar} alt='rating coffee' style={styles.ratingimg}/></View>
+                  </View>
+                  <View style={styles.rating}>
+                    <Text style={styles.ratingtext}>sustainability{'\n'} awareness</Text>
+                    <View style={[styles.ratingbar, handleWidth(markerData.ratingAwareness)]}><Image source={ratingbar} alt='rating coffee' style={styles.ratingimg}/></View>
+                  </View>
+                </View>
                 <Button style={styles.website} title='visit website'/>
               </View>
             </Modal>
@@ -87,15 +115,16 @@ const Map = props => {
 const styles = StyleSheet.create({
   container: {
     width: '80%',
-    height: '70%',
     marginHorizontal: '10%',
-    marginVertical: '15%',
+    marginTop: '25%',
     backgroundColor: '#ffffff',
-    padding: 15
+    padding: 15,
+    borderRadius: 26,
   },
   close: {
     alignSelf: 'flex-end',
-    padding: 10
+    paddingHorizontal: 20,
+    paddingVertical: 10,
   },
   header: {
       flexDirection: 'row',
@@ -109,6 +138,30 @@ const styles = StyleSheet.create({
   },
   hours: {
       marginLeft: 'auto'
+  },
+  adres: {
+    fontSize: 12
+  },
+  rating: {
+    flexDirection: 'row',
+  },
+  ratingcontainer: {
+    width: '90%',
+    borderTopColor: '#C0B8B8',
+    borderTopWidth: 1,
+    marginTop: 10
+  },
+  ratingbar:{
+    width: 70,
+    marginRight: 14,
+    height: 10,
+    backgroundColor: '#784D4D',
+    marginTop: 8,
+  },
+  ratingtext: {
+    fontSize: 14,
+    marginVertical: 5,
+    marginRight: 'auto'
   }
 })
 
