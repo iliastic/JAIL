@@ -9,8 +9,7 @@ import {
   Text, 
   Platform, 
   TextInput, 
-  Keyboard, 
-  FlatList 
+  Keyboard 
 } from 'react-native'
 import MapView, { Marker, PROVIDER_GOOGLE } from 'react-native-maps'
 import * as WebBrowser from 'expo-web-browser'
@@ -154,7 +153,7 @@ const Map = props => {
           <TextInput 
             id='search'
             style={styles.search} 
-            placeholder='search' 
+            placeholder='search ...' 
             clearButtonMode='while-editing' 
             onChange={handleInput}
             value={searchInput}
@@ -252,7 +251,7 @@ const styles = StyleSheet.create({
   searchicon:{
     position: 'absolute',
     right: '5%',
-    top: 8
+    top: 12
   },
   close: {
     alignSelf: 'flex-end',
