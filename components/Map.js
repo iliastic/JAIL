@@ -1,7 +1,21 @@
 import React, {useEffect, useState} from 'react'
-import { Button, StyleSheet, View, Modal, TouchableOpacity, Image, Text, Platform } from 'react-native'
+import { 
+  Button, 
+  StyleSheet, 
+  View, 
+  Modal, 
+  TouchableOpacity, 
+  Image, 
+  Text, 
+  Platform, 
+  TextInput, 
+  Keyboard, 
+  FlatList 
+} from 'react-native'
 import MapView, { Marker, PROVIDER_GOOGLE } from 'react-native-maps'
 import * as WebBrowser from 'expo-web-browser'
+import { MaterialIcons } from '@expo/vector-icons'
+
 
 import markerIcon from '../assets/marker.png'
 import xclose from '../assets/xclose.png'
@@ -12,6 +26,58 @@ const Map = props => {
     const [markerId, setMarkerId] = useState('')
     const [markerData, setMarkerData] = useState(undefined)
     const [visible, setVisible] = useState(true)
+    const [searchInput, setSearchInput] = useState('')
+    const [names, setNames] = useState([])
+    const [suggestions, setSuggestions] = useState([])
+
+    const handleInput = (target) => {
+      setSearchInput(target.nativeEvent.text)
+    }
+
+    const createSearch = () => {
+      let element = []
+
+      for (let i = 0; i < suggestions.length; i++){
+        element.push(
+          <TouchableOpacity 
+          key={suggestions[i].key} 
+          style={styles.listitem}
+          onPress={() => {
+            setMarkerId(suggestions[i].key)
+            setVisible(true)
+            setSuggestions([])
+          }}>
+            <Text>{suggestions[i].name}</Text>
+          </TouchableOpacity>
+        )
+      }
+      return element
+    }
+
+    const handleSearch = () => { 
+        let filter = searchInput.toUpperCase()
+        let results = []
+      for (let i = 0; i < names.length; i++){
+        let name = names[i].name.toUpperCase()
+        let key = names[i].key
+        let object = {name: name, key: key}
+        if (name.indexOf(filter) > -1){
+          results.push(object)
+        }
+      }
+      setSuggestions(results)
+    }
+
+    const setSearch = () => {
+      const searchArray = []
+      props.data.forEach( item => {
+        let name = item.name
+        let id = item.key
+        let object = {name: name, key: id}
+        searchArray.push(object)
+      })
+      setNames(searchArray)
+    }
 
     const handleRating = rating => {
       let percent = rating * 20
@@ -30,7 +96,7 @@ const Map = props => {
       return (
         {
           width: width,
-          marginRight: 250- width,
+          marginRight: 250 - width,
         }
         )
     }
@@ -47,6 +113,10 @@ const Map = props => {
         setMarkerData(markerState)
     })
 
+    useEffect(() => {
+      setSearch()
+    },[])
+
     return (
       <View style={StyleSheet.absoluteFillObject}>
         <MapView 
@@ -59,6 +129,11 @@ const Map = props => {
             style={StyleSheet.absoluteFillObject}
             customMapStyle={generatedMap}
             provider={PROVIDER_GOOGLE}
+            onPress={ () => {
+              Keyboard.dismiss()
+              setSuggestions([])
+            }
+            }
             >
             {props.data.map(info => {
                 return (
@@ -75,6 +150,22 @@ const Map = props => {
                 )
             })}
         </MapView>
+        <View style={styles.searchcontainer}>
+          <TextInput 
+            id='search'
+            style={styles.search} 
+            placeholder='search' 
+            clearButtonMode='while-editing' 
+            onChange={handleInput}
+            value={searchInput}
+          />
+          <TouchableOpacity style={styles.searchicon} onPress={handleSearch}>
+            <MaterialIcons name='search' color='#FF5100' size={25}/>
+          </TouchableOpacity>
+          <View style={styles.searchresults}>
+            {createSearch()}
+          </View>
+        </View>
             {markerData !== undefined &&
           <View>
             <Modal
@@ -134,10 +225,34 @@ const styles = StyleSheet.create({
   container: {
     width: '80%',
     marginHorizontal: '10%',
-    marginTop: '25%',
+    marginTop: '30%',
     backgroundColor: '#ffffff',
     padding: 15,
     borderRadius: 26,
+  },
+  searchcontainer: {
+    flexDirection: 'row',
+    width: '80%',
+    marginHorizontal: '10%',
+    marginTop: '12%',
+    height: 50,
+    backgroundColor: '#fff',
+    position: 'relative',
+    borderTopRightRadius: 15,
+    borderTopLeftRadius: 15,
+  },
+  search: {
+    width: '80%',
+    height: 30,
+    marginVertical: 12,
+    color: '#000000',
+    marginLeft: 10,
+    fontSize: 18
+  },
+  searchicon:{
+    position: 'absolute',
+    right: '5%',
+    top: 8
   },
   close: {
     alignSelf: 'flex-end',
@@ -184,6 +299,20 @@ const styles = StyleSheet.create({
     height: 20,
     backgroundColor: '#784D4D',
     borderRadius: 7
+  },
+  searchresults: {
+    transform:[
+      {translateY: 50}
+    ],
+    position: 'absolute',
+    width: '100%',
+    backgroundColor: '#fff',
+    borderBottomRightRadius: 15,
+    borderBottomLeftRadius: 15,
+    paddingHorizontal: 10,
+  },
+  listitem: {
+    marginBottom: 5
   }
 })
 
