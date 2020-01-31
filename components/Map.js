@@ -15,6 +15,8 @@ import MapView, { Marker, PROVIDER_GOOGLE } from 'react-native-maps'
 import * as WebBrowser from 'expo-web-browser'
 import { MaterialIcons } from '@expo/vector-icons'
 
+import WelcomeBox from '../components/WelcomeBox'
+
 
 import markerIcon from '../assets/marker.png'
 import xclose from '../assets/xclose.png'
@@ -165,6 +167,7 @@ const Map = props => {
             {createSearch()}
           </View>
         </View>
+        <WelcomeBox />
             {markerData !== undefined &&
           <View>
             <Modal
