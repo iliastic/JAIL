@@ -18,7 +18,7 @@ const WelcomeBox = () => {
     useEffect(() => {
         const checkLaunch =  async () => {
             const firstLaunch = await LaunchCheck()
-            setFirstLaunch(true)
+            setFirstLaunch(firstLaunch)
             setHasChecked(true)
         }
         checkLaunch()
@@ -36,7 +36,7 @@ const WelcomeBox = () => {
         Made to explore and learn about the sustainability of Antwerp coffee venues. 
         </Text>
     </View> :
-    <Text style={styles.welcomebox}>Has launched before</Text>
+    null
 }
 
 const styles = StyleSheet.create({
