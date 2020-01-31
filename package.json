@@ -8,9 +8,11 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "@react-native-community/masked-view": "^0.1.6",
     "@react-navigation/bottom-tabs": "^5.0.0-alpha.32",
     "@react-navigation/native": "^5.0.0-alpha.22",
     "expo": "~36.0.0",
+    "expo-web-browser": "~8.0.0",
     "firebase": "^7.6.1",
     "react": "~16.9.0",
     "react-dom": "~16.9.0",
@@ -18,14 +20,14 @@
     "react-native-firebase": "^5.6.0",
     "react-native-gesture-handler": "^1.5.3",
     "react-native-google-signin": "^2.1.1",
+    "react-native-maps": "0.26.1",
     "react-native-reanimated": "^1.4.0",
     "react-native-safe-area-context": "0.6.0",
     "react-native-screens": "^1.0.0-alpha.23",
     "react-native-web": "~0.11.7",
     "react-navigation": "^4.0.10",
-    "react-navigation-tabs": "^2.7.0",
-    "react-native-maps": "0.26.1",
-    "expo-web-browser": "~8.0.0"
+    "react-navigation-stack": "^2.0.16",
+    "react-navigation-tabs": "^2.7.0"
   },
   "devDependencies": {
     "babel-preset-expo": "~8.0.0",

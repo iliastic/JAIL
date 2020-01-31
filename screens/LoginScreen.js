@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, Text, View} from 'react-native'
+import { StyleSheet, Text, View, Image} from 'react-native'
 
 const LoginScreen = () => {
     return (
@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         alignItems: 'center',
         justifyContent: 'center',
-    },
+    }
 })
 
 export default LoginScreen

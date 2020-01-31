@@ -31,7 +31,7 @@ const InfoBox = () => {
                     Jan Haerens {'\n'}
                     Ilias Mesbahi {'\n'}
                     Panadda Manarata {'\n'}
-                    Hicham Bezziz {'\n'}
+                    Hicham Bezzizi {'\n'}
                     Ilger Depraetere {'\n'}
                 </Text>
                 <Text style={styles.team}>

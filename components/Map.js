@@ -158,6 +158,7 @@ const Map = props => {
             placeholder='search ...' 
             clearButtonMode='while-editing' 
             onChange={handleInput}
+            onChangeText={handleSearch}
             value={searchInput}
           />
           <TouchableOpacity style={styles.searchicon} onPress={handleSearch}>

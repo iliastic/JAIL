@@ -7,7 +7,7 @@ import { Feather, MaterialIcons } from '@expo/vector-icons'
 
 import Colors from '../constans/Colors'
 
-import ProfileScreen from '../screens/ProfileScreen'
+import InfoStack from '../navigation/InfoStack'
 import MapScreen from '../screens/MapScreen'
 import InfoScreen from '../screens/InfoScreen'
 
@@ -22,7 +22,7 @@ const AppNavigator = createBottomTabNavigator({
         },
     },
     Profile: {
-        screen: ProfileScreen,
+        screen: InfoStack,
         navigationOptions: {
             tabBarIcon: ({ tintColor }) => (<MaterialIcons name='person' size={24} color={tintColor} />)
         }
