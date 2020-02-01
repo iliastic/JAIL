@@ -28,22 +28,9 @@ const WelcomeBox = () => {
         return null
     }
 
-<<<<<<< HEAD
-    useEffect(()=> {
-        //checkStorage()
-    },[])
-
-    return (
-    <View style={dismiss ? styles.none : styles.welcomebox}>
-        <TouchableOpacity onPress={()=> {
-            dismissBox()
-            setStorage()
-        }} style={{padding: 15}}><Image source={xclose} style={styles.close} /></TouchableOpacity>
-=======
     return firstLaunch ?
     <View style={dismiss ? styles.none : styles.welcomebox}>
         <TouchableOpacity onPress={dismissBox} style={{paddingHorizontal: 20}}><Image source={xclose} style={styles.close} /></TouchableOpacity>
->>>>>>> 5799e296bc54674d8a9820ed138f3e700dec12a8
         <Text style={styles.textbox}>
         Welcome to cupp-a, 
         Made to explore and learn about the sustainability of Antwerp coffee venues. 

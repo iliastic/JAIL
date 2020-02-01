@@ -23,13 +23,8 @@ const ProfileScreen = ({navigation}) => {
                     </View>
                 </View>
             </TouchableOpacity>
-<<<<<<< HEAD
-            <TouchableOpacity onPress={handleEmail}>
-                <View style={[styles.button, {backgroundColor: 'rgba(209, 163, 142, 0.6)'}]}>
-=======
             <TouchableOpacity>
                 <View style={[styles.button, {backgroundColor: '#D1A38E'}]}>
->>>>>>> 5799e296bc54674d8a9820ed138f3e700dec12a8
                     <View style={styles.btnimage}>
                         <Image source={AMSlogo} style={{alignSelf: 'flex-end', marginRight: 'auto', marginLeft: 10, height: 60, width: 160}}/>
                         <View style={styles.textcontainer}>

@@ -1,6 +1,7 @@
 
 import React, { Component } from 'react';
 import { View, StyleSheet, Image, Dimensions } from 'react-native';
+import { SocialIcon } from 'react-native-elements'
 import { Colors, Fonts, Borders } from '../constans/Base';
 import styled from 'styled-components';
 import SocialButton from '../components/SocialButton';
@@ -9,6 +10,8 @@ import FacebookIcon from '../components/Facebook';
 import GmailIcon from '../components/Gmail';
 import * as Google from 'expo-google-app-auth';
 import firebase from 'firebase';
+
+import userbg from '../assets/userbg.png'
 
 const screenWidth = Math.round(Dimensions.get('window').width)
 const horizontalMargin = (screenWidth - 270) / 2
@@ -84,48 +87,46 @@ export default class Loginscreen extends Component {
 
     render() {
         return (
-            <Container>
-
-                <View style={styles.container}>
-                    <Image source={require('../assets/loginBg.png')} style={styles.backgroundImage} />
-                    <Logo />
-                    <SocialButton
-                        onPress={this.signInWithGoogleAsync}
-                        text="Continue with Google"
-                        textColor={'#FFFFFF;'}
-                        backgroundColor={Colors.mainTint}
-                        border={Borders.secondary}
-                        fontSize={Fonts.lg} />
-                    <GmailIcon />
-                    <SocialButton
-                        text="Continue with Facebook"
-                        textColor={Colors.black}
-                        backgroundColor={'transparent'}
-                        border={Borders.primary} />
-                    <FacebookIcon />
-                </View>
-            </Container>
+            <View style={styles.container}>
+                {/* <SocialButton
+                    text="Continue with Google"
+                    textColor={'#FFFFFF;'}
+                    backgroundColor={Colors.mainTint}
+                    border={Borders.secondary}
+                    fontSize={Fonts.lg} />
+                <GmailIcon /> */}
+                <Logo style={{flex: 1}}/>
+                <SocialIcon
+                    title='Sign in with google'
+                    onPress={this.signInWithGoogleAsync}
+                    button
+                    light
+                    type='google'
+                    style={styles.button}
+                />
+                <Image source={userbg} style={styles.background} />
+            </View>
         )
     }
 }
 
-const Container = styled.View`
-	flex: 1;
-	justify-content: flex-end;
-	align-items: center;
-`;
-
 const styles = StyleSheet.create({
     container: {
-        marginBottom: 55,
-        // marginHorizontal: horizontalMargin
+        flex: 1,
+        backgroundColor: '#fff',
+        justifyContent: 'space-between'
     },
-    backgroundImage: {
+    background: {
         position: 'absolute',
-        top: 0,
-        bottom: 0,
-        right: -17,
-        resizeMode: 'cover',
         zIndex: -1,
+        height: Dimensions.get('screen').height,
+        width: Dimensions.get('screen').width,
     },
+    button: {
+        flex: 1,
+        width: '60%',
+        // marginHorizontal: 'auto',
+        // marginVertical: '10%',
+        // height: (Dimensions.get('screen').height / 100) * 20,
+    }
 });
