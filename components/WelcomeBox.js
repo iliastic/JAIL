@@ -23,7 +23,7 @@ const WelcomeBox = () => {
     }
 
     useEffect(()=> {
-        checkStorage()
+        //checkStorage()
     },[])
 
     return (
@@ -31,7 +31,7 @@ const WelcomeBox = () => {
         <TouchableOpacity onPress={()=> {
             dismissBox()
             setStorage()
-        }} style={{width: '100%'}}><Image source={xclose} style={styles.close} /></TouchableOpacity>
+        }} style={{padding: 15}}><Image source={xclose} style={styles.close} /></TouchableOpacity>
         <Text style={styles.textbox}>
             Welcome to cupp-a, 
             Made to explore and learn about the sustainability of Antwerp coffee venues. 
@@ -41,30 +41,32 @@ const WelcomeBox = () => {
 
 const styles = StyleSheet.create({
     welcomebox: {
-        position: 'absolute',
+        position: 'relative',
         marginTop: '50%',
-        height: '30%',
+        height: 260,
         width: '80%',
         marginHorizontal: '10%',
-        padding: 20,
-        paddingVertical: 40,
+        padding: 30,
+        paddingTop: 10,
+        paddingVertical: 'auto',
         backgroundColor: '#EAE8DB',
-        borderRadius: 35
+        borderRadius: 35,
+        transform: [
+            {translateY: '-50%'}
+        ]
     },
     textbox: {
+        marginTop: 10,
         width: '100%',
-        height: '100%',
+        height: 160,
         backgroundColor: '#FFF',
         padding: 10,
         textAlign: 'center',
-        paddingVertical: 30,
+        paddingTop: 50,
         color: '#784D4D'
     },
     close : {
         alignSelf: 'flex-end',
-        transform: [
-            {translateY: -20}
-        ],
     },
     none: {
         display: 'none'

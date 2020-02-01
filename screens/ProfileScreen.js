@@ -18,9 +18,9 @@ const ProfileScreen = ({navigation}) => {
                 <Text style={styles.welcometext}>Hi,{'\n'} Coffee Lover ! </Text>
             </View>
             <TouchableOpacity onPress={() => {navigation.navigate('DevInfo')}}>
-                <View style={[styles.button, {backgroundColor: '#FA905F'}]}>
+                <View style={[styles.button, {backgroundColor: 'rgba(250, 144, 95, 0.6)'}]}>
                     <View style={styles.btnimage}>
-                        <Image source={ALogo} style={{alignSelf: 'flex-end', marginBottom: 10, marginRight: 'auto'}}/>
+                        <Image source={ALogo} style={{alignSelf: 'flex-end', marginRight: 'auto'}}/>
                         <View style={styles.textcontainer}>
                             <Text style={styles.btntext}>About</Text>
                             <Text style={styles.btntext}>Cupp-A</Text>
@@ -29,9 +29,9 @@ const ProfileScreen = ({navigation}) => {
                 </View>
             </TouchableOpacity>
             <TouchableOpacity onPress={handleEmail}>
-                <View style={[styles.button, {backgroundColor: '#D1A38E'}]}>
+                <View style={[styles.button, {backgroundColor: 'rgba(209, 163, 142, 0.6)'}]}>
                     <View style={styles.btnimage}>
-                        <Image source={AMSlogo} style={{alignSelf: 'flex-end', height: '35%', marginRight: 'auto'}}/>
+                        <Image source={AMSlogo} style={{alignSelf: 'flex-end', marginRight: 'auto', marginLeft: 10, height: 60, width: 160}}/>
                         <View style={styles.textcontainer}>
                             <Text style={styles.btntext}>Contact</Text>
                             <Text style={styles.btntext}>AMS</Text>
@@ -60,10 +60,9 @@ const styles = StyleSheet.create({
     button: {
         width: '90%',
         marginHorizontal: 'auto',
-        marginVertical: '10%',
+        marginVertical: '8%',
         height: (Dimensions.get('screen').height / 100) * 20,
-        borderRadius: 30,
-        opacity: 0.7
+        borderRadius: 30
     },
     welcometext: {
         fontSize: 35,
@@ -78,7 +77,8 @@ const styles = StyleSheet.create({
     btntext: {
         fontSize: 35,
         color: '#fff',
-        textAlign: 'right'
+        textAlign: 'right',
+        paddingRight: 15
     },
     textcontainer: {
         marginLeft: '15%',

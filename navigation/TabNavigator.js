@@ -49,8 +49,7 @@ const AppNavigator = createBottomTabNavigator({
                 shadowRadius: 4,
                 shadowOpacity: 1,
                 borderRadius: 46,
-                display: 'flex',
-                marginBottom: '7%',
+                marginBottom: '10%',
                 marginHorizontal: horizontalMargin
             },
             showLabel: false,
