@@ -1,11 +1,16 @@
 import React from 'react'
 import { StyleSheet, Text, View, Image, TouchableOpacity, Dimensions } from 'react-native'
+import { email } from 'react-native-communications'
 
 import userbg from '../assets/userbg.png'
 import ALogo from '../assets/ALogo.png'
 import AMSlogo from '../assets/AMSlogo.png'
 
 const ProfileScreen = ({navigation}) => {
+
+    const handleEmail = () => {
+        email(['cuppa.ams@gmail.com'],null,null,'CUPP-A','Ask your questions')
+    }
 
     return (
         <View style={styles.container}>
@@ -23,7 +28,7 @@ const ProfileScreen = ({navigation}) => {
                     </View>
                 </View>
             </TouchableOpacity>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={handleEmail}>
                 <View style={[styles.button, {backgroundColor: '#D1A38E'}]}>
                     <View style={styles.btnimage}>
                         <Image source={AMSlogo} style={{alignSelf: 'flex-end', height: '35%', marginRight: 'auto'}}/>

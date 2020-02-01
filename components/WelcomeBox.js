@@ -1,43 +1,43 @@
 import React, { useState, useEffect } from 'react'
-import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native'
-
-import LaunchCheck from '../database/LaunchCheck'
+import { StyleSheet, Text, View, Image, TouchableOpacity, AsyncStorage } from 'react-native'
 
 import xclose from '../assets/xclose.png'
 
 const WelcomeBox = () => {
 
-    const [firstLaunch, setFirstLaunch] = useState(false)
-    const [hasChecked, setHasChecked] = useState(false)
     const [dismiss, setDismiss] = useState(false)
     
     const dismissBox = () => {
         setDismiss(true)
     }
 
-    useEffect(() => {
-        const checkLaunch =  async () => {
-            const firstLaunch = await LaunchCheck()
-            setFirstLaunch(firstLaunch)
-            setHasChecked(true)
+    const checkStorage = async () => {
+        const check = await AsyncStorage.getItem('first-launch')
+        if (check !== null){
+            setDismiss(true)
         }
-        checkLaunch()
-    })
-
-    if (!hasChecked){
-        return null
     }
 
-    return firstLaunch ?
+    const setStorage = () => {
+        AsyncStorage.setItem('first-launch', 'true')
+    }
+
+    useEffect(()=> {
+        checkStorage()
+    },[])
+
+    return (
     <View style={dismiss ? styles.none : styles.welcomebox}>
-        <TouchableOpacity onPress={dismissBox} style={{paddingHorizontal: 20}}><Image source={xclose} style={styles.close} /></TouchableOpacity>
+        <TouchableOpacity onPress={()=> {
+            dismissBox()
+            setStorage()
+        }} style={{width: '100%'}}><Image source={xclose} style={styles.close} /></TouchableOpacity>
         <Text style={styles.textbox}>
-        Welcome to cupp-a, 
-        Made to explore and learn about the sustainability of Antwerp coffee venues. 
+            Welcome to cupp-a, 
+            Made to explore and learn about the sustainability of Antwerp coffee venues. 
         </Text>
-    </View> :
-    null
-}
+    </View> 
+)}
 
 const styles = StyleSheet.create({
     welcomebox: {
