@@ -7,27 +7,27 @@ import xclose from '../assets/xclose.png'
 
 const WelcomeBox = () => {
 
-    const [firstLaunch, setFirstLaunch] = useState(false)
-    const [hasChecked, setHasChecked] = useState(false)
     const [dismiss, setDismiss] = useState(false)
     
     const dismissBox = () => {
         setDismiss(true)
     }
 
-    useEffect(() => {
-        const checkLaunch =  async () => {
-            const firstLaunch = await LaunchCheck()
-            setFirstLaunch(firstLaunch)
-            setHasChecked(true)
+    const checkStorage = async () => {
+        const check = await AsyncStorage.getItem('first-launch')
+        if (check !== null){
+            setDismiss(true)
         }
-        checkLaunch()
-    })
-
-    if (!hasChecked){
-        return null
     }
 
+    const setStorage = () => {
+        AsyncStorage.setItem('first-launch', 'true')
+    }
+
+    useEffect(()=> {
+        checkStorage()
+    },[])
+    
     return firstLaunch ?
     <View style={dismiss ? styles.none : styles.welcomebox}>
         <TouchableOpacity onPress={dismissBox} style={{paddingHorizontal: 20}}><Image source={xclose} style={styles.close} /></TouchableOpacity>
