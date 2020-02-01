@@ -21,13 +21,13 @@ export const AppNavigator = createStackNavigator({
     Login: {
         screen: LoginScreen,
         navigationOptions: {
-            header: null,
+            headerShown: false
         }
     },
     Loading: {
         screen: LoadingScreen,
         navigationOptions: {
-            header: null,
+            headerShown: false
         }
     },
     Tab: createBottomTabNavigator({
@@ -76,5 +76,3 @@ export const AppNavigator = createStackNavigator({
 )
 
 export const Navigator = createAppContainer(AppNavigator)
-
-
