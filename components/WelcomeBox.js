@@ -1,27 +1,34 @@
 import React, { useState, useEffect } from 'react'
-import { StyleSheet, Text, View, Image, TouchableOpacity, AsyncStorage } from 'react-native'
+import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native'
+
+import LaunchCheck from '../database/LaunchCheck'
 
 import xclose from '../assets/xclose.png'
 
 const WelcomeBox = () => {
 
+    const [firstLaunch, setFirstLaunch] = useState(false)
+    const [hasChecked, setHasChecked] = useState(false)
     const [dismiss, setDismiss] = useState(false)
     
     const dismissBox = () => {
         setDismiss(true)
     }
 
-    const checkStorage = async () => {
-        const check = await AsyncStorage.getItem('first-launch')
-        if (check !== null){
-            setDismiss(true)
+    useEffect(() => {
+        const checkLaunch =  async () => {
+            const firstLaunch = await LaunchCheck()
+            setFirstLaunch(firstLaunch)
+            setHasChecked(true)
         }
+        checkLaunch()
+    })
+
+    if (!hasChecked){
+        return null
     }
 
-    const setStorage = () => {
-        AsyncStorage.setItem('first-launch', 'true')
-    }
-
+<<<<<<< HEAD
     useEffect(()=> {
         //checkStorage()
     },[])
@@ -32,12 +39,18 @@ const WelcomeBox = () => {
             dismissBox()
             setStorage()
         }} style={{padding: 15}}><Image source={xclose} style={styles.close} /></TouchableOpacity>
+=======
+    return firstLaunch ?
+    <View style={dismiss ? styles.none : styles.welcomebox}>
+        <TouchableOpacity onPress={dismissBox} style={{paddingHorizontal: 20}}><Image source={xclose} style={styles.close} /></TouchableOpacity>
+>>>>>>> 5799e296bc54674d8a9820ed138f3e700dec12a8
         <Text style={styles.textbox}>
-            Welcome to cupp-a, 
-            Made to explore and learn about the sustainability of Antwerp coffee venues. 
+        Welcome to cupp-a, 
+        Made to explore and learn about the sustainability of Antwerp coffee venues. 
         </Text>
-    </View> 
-)}
+    </View> :
+    null
+}
 
 const styles = StyleSheet.create({
     welcomebox: {

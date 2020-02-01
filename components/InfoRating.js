@@ -1,37 +1,32 @@
 import React from 'react'
-import { StyleSheet, Text, View, Image, Dimensions, Linking } from 'react-native'
+import { StyleSheet, View, Text, Image } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
-import ShowMore from 'react-native-show-more-button';
 
-const InfoScreen = () => {
+const InfoRating = () => {
+
     return (
-        <View>
-            <Image style={styles.backgroundImage} source={require('../assets/InfoRatingBG.png')} style={styles.backgroundImage} />
-            <Text style={styles.infoTitle}>
-                Info rating
-             </Text>
-            <Image style={styles.infoImage} source={require('../assets/info-icon.png')} />
+        <View style={styles.infoTitle}>
+            <Text> Info Rating</Text>
             <ScrollView style={styles.scrollcontainer}>
 
                 <Text style={styles.ratingTitle}>
-                    I.  Rating System {"\n"}
+                    I.  Rating System. {"\n"}
                 </Text>
                 <View
                     style={styles.titleBorder}
                 />
-                <ShowMore height={100} buttonColor={'#8B8080'} showMoreText="read more" showLessText="close">
-                    <Text style={styles.alinea}>
-                        The entire project is built around SDG 12: responsible consumption and production. The app aims to impact the way people make decisions in their (coffee) consuming behavior.
-                        The rating system of the coffee shops is based on 7 categories that, when seen together, make sure all aspects of sustainability as they are included in the Sustainable Development Goals are taken into account.
-                        Since some of the SDGs are however clearly addressed towards governments, we took in that case the corresponding Sustainable Lifestyle Goals, also known as the Good Life Goals2, into account.
-                        These goals focus more on the public and how they can individually take action and support the Sustainable Development Goals. Considering both frameworks, we were able to include all 17 goals in the following 7 categories.
-                        The questions that were asked in relation to the categories will be indicated. One can find the full questionnaire at the end of this document in the appendix. We used an all-or-nothing approach to marking the coffee bars on the 7 categories. Either they got the full mark or they received no mark. Eventually a coffee bar ends up with a score out of 7.
-                        For the first category the decision of giving the mark was decided by the fact whether the coffee beans are supported by a label and what value that label has. For categories 2-7, a 50% rule was used.
-                        This means that a coffee bar got the full mark for the category if they answered positively to 50% or more of the sub questions. Situations in which the question was Not Applicable (NA) or non-answers were disregarded in respect to the 50% rule.
-                        </Text>
-                </ShowMore>
+                <Text style={styles.alinea}>
+                    The entire project is built around SDG 12: responsible consumption and production. The app aims to impact the way people make decisions in their (coffee) consuming behavior. {"\n"}
+                    The rating system of the coffee shops is based on 7 categories that, when seen together, make sure all aspects of sustainability as they are included in the Sustainable Development Goals are taken into account. {"\n"}
+                    Since some of the SDGs are however clearly addressed towards governments, we took in that case the corresponding Sustainable Lifestyle Goals, also known as the Good Life Goals2, into account. {"\n"}
+                    These goals focus more on the public and how they can individually take action and support the Sustainable Development Goals. Considering both frameworks, we were able to include all 17 goals in the following 7 categories.  {"\n"}
+                    The questions that were asked in relation to the categories will be indicated. One can find the full questionnaire at the end of this document in the appendix. We used an all-or-nothing approach to marking the coffee bars on the 7 categories. Either they got the full mark or they received no mark. Eventually a coffee bar ends up with a score out of 7.  {"\n"}
+                    For the first category the decision of giving the mark was decided by the fact whether the coffee beans are supported by a label and what value that label has. For categories 2-7, a 50% rule was used. {"\n"}
+                    This means that a coffee bar got the full mark for the category if they answered positively to 50% or more of the sub questions. Situations in which the question was Not Applicable (NA) or non-answers were disregarded in respect to the 50% rule.{"\n"}
+                    {"\n"}
+                </Text>
                 <Text style={styles.ratingSubTitle}>
-                    1.  Coffee Beans {"\n"}
+                    1.  Coffee Beans. {"\n"}
                 </Text>
                 <View
                     style={styles.titleBorder}
@@ -46,9 +41,10 @@ const InfoScreen = () => {
                     <Image source={require('../assets/FairTrade.png')} />
                     <Image source={require('../assets/BioOrganic.png')} />
                     <Image source={require('../assets/BirdFriendSmith.png')} /> {"\n"}
+                    {"\n"}
                 </Text>
                 <Text style={styles.ratingSubTitle}>
-                    2.  Alternative Food Options {"\n"}
+                    2.  Alternative Food Options. {"\n"}
                 </Text>
                 <View
                     style={styles.titleBorder}
@@ -58,6 +54,7 @@ const InfoScreen = () => {
                     -   Organic Milk Options (Q10) {"\n"}
                     <Image source={require('../assets/2EatBetter.png')} />
                     <Image source={require('../assets/12RespConsProd.png')} /> {"\n"}
+                    {"\n"}
                 </Text>
                 <Text style={styles.ratingSubTitle}>
                     3.  Packaging {"\n"}
@@ -70,6 +67,7 @@ const InfoScreen = () => {
                     -  Milk/Sugar/Cookie (Q3b) {"\n"}
                     -  Extra Efforts (Q13) {"\n"}
                     <Image source={require('../assets/12RespConsProd.png')} /> {"\n"}
+                    {"\n"}
                 </Text>
                 <Text style={styles.ratingSubTitle}>
                     4.  Waste Management {"\n"}
@@ -81,6 +79,7 @@ const InfoScreen = () => {
                     -  Coffee and food waste (Q14) {"\n"}
                     -  Energy (Q8) and water (Q9) {"\n"}
                     <Image source={require('../assets/11SustCitiesCommunities.png')} /> {"\n"}
+                    {"\n"}
                 </Text>
                 <Text style={styles.ratingSubTitle}>
                     5.  Local Economy {"\n"}
@@ -92,6 +91,7 @@ const InfoScreen = () => {
                     -  Local economy support (Q11) {"\n"}
                     -  Loyalty card (Q12) {"\n"}
                     <Image source={require('../assets/11LoveWhereYouLive.png')} /> {"\n"}
+                    {"\n"}
                 </Text>
                 <Text style={styles.ratingSubTitle}>
                     6.  Social Impact {"\n"}
@@ -103,6 +103,7 @@ const InfoScreen = () => {
                     -  Gender equality (Q6) {"\n"}
                     -  No discrimination on the basis of nationality (Q6) {"\n"}
                     <Image source={require('../assets/5TreatEveryoneEqually.png')} /> {"\n"}
+                    {"\n"}
                 </Text>
                 <Text style={styles.ratingSubTitle}>
                     7.  Sustainability Awareness {"\n"}
@@ -115,9 +116,10 @@ const InfoScreen = () => {
                     -  Objectives or targets towards sustainability (Q5) {"\n"}
                     -  Sustainability high on the agenda (Q7) {"\n"}
                     <Image style={styles.images} source={require('../assets/8DoGoodWork.png')} /> {"\n"}
+                    {"\n"}
                 </Text>
                 <Text style={styles.ratingTitle}>
-                    II.  Flaws in the rating system {"\n"}
+                    III.  Flaws in the rating system. {"\n"}
                 </Text>
                 <View
                     style={styles.titleBorder}
@@ -132,42 +134,10 @@ const InfoScreen = () => {
                     • If no specific example or too vague or not verifiable then FAIL and no mark {"\n"}
                     • Not rewarded for doing what is legally obligated: FAIL  {"\n"}
                     • Coffee beans that have no labels (eg. bars that use their own coffee blend) cannot be scored on Q1 {"\n"}
+                    {"\n"}
+                    {"\n"}
+                    {"\n"}
                 </Text>
-                <Text style={styles.ratingTitle}>
-                    III.  Appendix {"\n"}
-                </Text>
-                <View
-                    style={styles.titleBorder}
-                />
-                <Text style={styles.alinea}>
-                    Q1. What is the brand of coffee that you use? What kind of coffee beans are you using? What labels do the coffee beans have (certified)? {"\n"}
-                    Q2. What material is used for take away coffee? (Cups, straws, lids) {"\n"}
-                    Q3. What are you already doing toward sustainability foodwise? (vegan, sup mlplies) a. Vegan foods/snacks? b. Separate (plastic) packaging for cookies, sugar, milk? {"\n"}
-                    Q4. Have you seen value in your business from your sustainability efforts? {"\n"}
-                    Q5. Do you have any objectives and/or targets toward sustainability efforts? {"\n"}
-                    Q6. How are you addressing social equality (gender, age, looks, international)? {"\n"}
-                    Q7. Is sustainability high on your agenda? {"\n"}
-                    Q8. Are you tracking, reporting and reducing your energy use? {"\n"}
-                    Q9. Are you tracking, reporting, and reducing your water use? {"\n"}
-                    Q10. What kind of dairy products, sugars, and other ingredients do you use? {"\n"}
-                    Q11. How do you support the local economy? {"\n"}
-                    Q12. Are you part of a community with a loyalty card? (you can use the card at more than your store) {"\n"}
-                    Q13. Do you work with promotions towards customers that bring their own cup? Q14. What do you do with the coffee and food waste (remainder of the coffee beans, take away materials, transport materials, products ingredients in general, eg. toogoodtogo)? {"\n"}
-                </Text>
-                <View
-                    style={styles.titleBorder}
-                />
-                <View style={styles.footnoteMargin}>
-                    <Text style={styles.footnoteText} onPress={() => Linking.openURL('https://www.un.org/sustainabledevelopment/sustainable-development-goals/')}>
-                        https://www.un.org/sustainabledevelopment/sustainable-development-goals/  {"\n"}
-                    </Text>
-                    <Text style={styles.footnoteText} onPress={() => Linking.openURL('https://www.wbcsd.org/Programs/People/Sustainable-Lifestyles/News/Personal-actions-that-everyone-can-take-to-support-the-SDGs')}>
-                        https://www.wbcsd.org/Programs/People/Sustainable-Lifestyles/News/Personal-actions-that-everyone-can-take-to-support-the-SDGs {"\n"}
-                    </Text>
-                    <Text style={styles.footnoteText} onPress={() => Linking.openURL('http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.453.2341&rep=rep1&type=pdf')}>
-                        http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.453.2341&rep=rep1&type=pdf
-                </Text>
-                </View>
             </ScrollView>
         </View>
     )
@@ -176,27 +146,18 @@ const InfoScreen = () => {
 const styles = StyleSheet.create({
     container: {
         margin: 20,
+        marginBottom: '15%'
     },
     scrollcontainer: {
         padding: 8,
         paddingTop: 30,
         backgroundColor: '#ffffff',
-        borderRadius: 30,
+        marginTop: '5%'
     },
     infoTitle: {
-        alignSelf: 'center',
-        marginTop: 80,
-        marginBottom: 29,
-        marginLeft: 30,
-        color: '#784D4D',
-        fontSize: 40,
-    },
-    infoImage: {
-        position: 'absolute',
-        left: 42,
-        top: 80,
-        width: 50,
-        height: 51,
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginTop: '15%'
     },
     header: {
         alignSelf: 'center',
@@ -207,7 +168,6 @@ const styles = StyleSheet.create({
         fontSize: 16,
         lineHeight: 25,
         letterSpacing: 0.03,
-        marginBottom: 24,
     },
     team: {
         fontSize: 16,
@@ -239,21 +199,6 @@ const styles = StyleSheet.create({
     ratingButton: {
         margin: 35,
     },
-    backgroundImage: {
-        position: 'absolute',
-        zIndex: -1,
-        top: 0,
-        bottom: 0,
-        resizeMode: 'cover',
-    },
-    footnoteMargin: {
-        marginBottom: 295,
-        marginTop: 10,
-    },
-    footnoteText: {
-        fontSize: 10,
-        color: 'blue',
-    }
 })
 
-export default InfoScreen
+export default InfoRating;

@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import { StyleSheet, View } from 'react-native'
+import { StyleSheet, View, Text, Dimensions, Button} from 'react-native'
 
 import firebase from '../database/Firebase'
 import Map from '../components/Map'
@@ -48,7 +48,7 @@ const MapScreen = () => {
       return null
   }
   return (
-      <Map data={data} />
+    <Map data={data}/>
   )
 }
 
