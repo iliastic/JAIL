@@ -1,15 +1,12 @@
-import React, {useState} from 'react' 
-
-
-import TabNavigator from './navigation/TabNavigator'
-import LoginScreen from './screens/LoginScreen'
+import React, { useState } from 'react'
+import { Navigator } from './navigation/TabNavigator'
 
 const App = () => {
 
   const [login, setLogin] = useState(false)
 
-
-  return  <TabNavigator />
+  return <Navigator />
 }
+
 
 export default App

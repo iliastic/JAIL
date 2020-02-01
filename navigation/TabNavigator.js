@@ -3,38 +3,53 @@ import { Dimensions } from 'react-native'
 
 import { createAppContainer } from 'react-navigation'
 import { createBottomTabNavigator } from 'react-navigation-tabs'
+import { createStackNavigator } from 'react-navigation-stack';
 import { Feather, MaterialIcons } from '@expo/vector-icons'
 
-import Colors from '../constans/Colors'
+import { Colors } from '../constans/Base'
 
-import InfoStack from '../navigation/InfoStack'
+import ProfileScreen from '../screens/ProfileScreen'
 import MapScreen from '../screens/MapScreen'
 import InfoScreen from '../screens/InfoScreen'
+import LoginScreen from '../screens/LoginScreen';
+import LoadingScreen from '../screens/LoadingScreen';
 
 const screenWidth = Math.round(Dimensions.get('window').width)
 const horizontalMargin = (screenWidth - 270) / 2
 
-const AppNavigator = createBottomTabNavigator({
-    Map: {
-        screen: MapScreen,
+export const AppNavigator = createStackNavigator({
+    Login: {
+        screen: LoginScreen,
         navigationOptions: {
-            tabBarIcon: ({ tintColor }) => (<Feather name='map' size={24} color={tintColor} />),
+            header: null,
+        }
+    },
+    Loading: {
+        screen: LoadingScreen,
+        navigationOptions: {
+            header: null,
+        }
+    },
+    Tab: createBottomTabNavigator({
+        Map: {
+            screen: MapScreen,
+            navigationOptions: {
+                tabBarIcon: ({ tintColor }) => (<Feather name='map' size={24} color={tintColor} />),
+            },
         },
-    },
-    Profile: {
-        screen: InfoStack,
-        navigationOptions: {
-            tabBarIcon: ({ tintColor }) => (<MaterialIcons name='person' size={24} color={tintColor} />)
-        }
-    },
-    Info: {
-        screen: InfoScreen,
-        navigationOptions: {
-            tabBarIcon: ({ tintColor }) => (<Feather name='info' size={24} color={tintColor} />)
-        }
-    },
-}, {
-        initialRouteName: 'Map',
+        Profile: {
+            screen: ProfileScreen,
+            navigationOptions: {
+                tabBarIcon: ({ tintColor }) => (<MaterialIcons name='person' size={24} color={tintColor} />),
+            },
+        },
+        Info: {
+            screen: InfoScreen,
+            navigationOptions: {
+                tabBarIcon: ({ tintColor }) => (<Feather name='info' size={24} color={tintColor} />),
+            },
+        },
+    }, {
         tabBarOptions: {
             inactiveTintColor: Colors.grey,
             activeTintColor: Colors.mainTint,
@@ -56,9 +71,10 @@ const AppNavigator = createBottomTabNavigator({
             showLabel: false,
         },
     },
-
+    ),
+}, { headerMode: 'none', }
 )
 
-const TabNavigator = createAppContainer(AppNavigator)
+export const Navigator = createAppContainer(AppNavigator)
 
-export default TabNavigator
+
