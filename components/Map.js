@@ -92,8 +92,8 @@ const Map = props => {
     }
 
     const handleScore = rating => {
-      let percent = rating * 20
-      let width = percent * 2.5
+      let percent = rating * 14
+      let width = percent * 1.42
       return (
         {
           width: width,
@@ -212,7 +212,7 @@ const Map = props => {
                     <View style={[styles.ratingbar, handleRating(markerData.ratingSocial)]}><Image source={ratingbar} alt='rating coffee' style={styles.ratingimg}/></View>
                   </View>
                   <View style={styles.rating}>
-                    <Text style={styles.ratingtext}>sustainability{'\n'} awareness</Text>
+                    <Text style={styles.ratingtext}>sustainability awareness</Text>
                     <View style={[styles.ratingbar, handleRating(markerData.ratingAwareness)]}><Image source={ratingbar} alt='rating coffee' style={styles.ratingimg}/></View>
                   </View>
                 </View>
@@ -228,7 +228,8 @@ const styles = StyleSheet.create({
   container: {
     width: '80%',
     marginHorizontal: '10%',
-    marginTop: '30%',
+    marginTop: 'auto',
+    marginBottom: 'auto',
     backgroundColor: '#ffffff',
     padding: 15,
     borderRadius: 26,
