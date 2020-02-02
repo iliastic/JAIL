@@ -6,6 +6,8 @@ import { createBottomTabNavigator } from 'react-navigation-tabs'
 import { createStackNavigator } from 'react-navigation-stack';
 import { Feather, MaterialIcons } from '@expo/vector-icons'
 
+import normalize from 'react-native-normalize';
+
 import { Colors } from '../constans/Base'
 
 import ProfileScreen from '../screens/ProfileScreen'
@@ -15,20 +17,32 @@ import LoginScreen from '../screens/LoginScreen';
 import LoadingScreen from '../screens/LoadingScreen';
 import AboutScreen from '../screens/AboutScreen';
 
+
+const { width, height } = Dimensions.get('window');
+
+//Guideline sizes are based on standard ~5" screen mobile device
+const guidelineBaseWidth = 350;
+const guidelineBaseHeight = 680;
+
+const scale = size => width / guidelineBaseWidth * size;
+const verticalScale = size => height / guidelineBaseHeight * size;
+const moderateScale = (size, factor = 0.5) => size + ( scale(size) - size ) * factor;
+
+
 const screenWidth = Math.round(Dimensions.get('window').width)
 const horizontalMargin = (screenWidth - 270) / 2
 
 export const AppNavigator = createStackNavigator({
-    Login: {
-        screen: LoginScreen,
+    Loading: {
+        screen: LoadingScreen,
         navigationOptions: {
             headerShown: false,
             gesturesEnabled: false,
             swipeEnabled: false,
         }
     },
-    Loading: {
-        screen: LoadingScreen,
+    Login: {
+        screen: LoginScreen,
         navigationOptions: {
             headerShown: false,
             gesturesEnabled: false,
@@ -47,7 +61,7 @@ export const AppNavigator = createStackNavigator({
             screen: MapScreen,
             navigationOptions: {
                 tabBarIcon: ({ tintColor }) => (<Feather name='map' size={24} color={tintColor} />),
-                gesturesEnabled: false,
+                gestureEnabled: false,
                 swipeEnabled: false,
             },
         },
@@ -72,19 +86,20 @@ export const AppNavigator = createStackNavigator({
             inactiveTintColor: Colors.grey,
             activeTintColor: Colors.mainTint,
             style: {
-                backgroundColor: '#FFFFFF',
-                width: 270,
-                height: 60,
+                height: moderateScale(60, 0.4),
+                // height: normalize(60, 'height'),
+                width: normalize(270),
                 position: 'absolute',
+                alignSelf: 'center',
+                justifyContent: 'center',
+                backgroundColor: '#FFFFFF',
                 borderTopColor: 'transparent',
                 shadowColor: 'rgba(0, 0, 0, 0.25)',
                 shadowOffset: { width: 4, height: 0 },
                 shadowRadius: 4,
                 shadowOpacity: 1,
-                borderRadius: 46,
-                marginBottom: '10%',
-                marginHorizontal: horizontalMargin,
-                gesturesEnabled: false,
+                borderRadius: normalize(50),
+                marginBottom: normalize(50, 'height'),
             },
             showLabel: false,
             gesturesEnabled: false,
