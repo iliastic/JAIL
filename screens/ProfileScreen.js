@@ -1,21 +1,21 @@
 import React from 'react'
-import { StyleSheet, Text, View, Image, TouchableOpacity, Dimensions } from 'react-native'
+import { StyleSheet, Text, View, Image, TouchableOpacity, Dimensions, Linking } from 'react-native'
 
 import userbg from '../assets/userbg.png'
 import ALogo from '../assets/ALogo.png'
 import AMSlogo from '../assets/AMSlogo.png'
 
-const ProfileScreen = ({navigation}) => {
+const ProfileScreen = ({ navigation }) => {
 
     return (
         <View style={styles.container}>
             <View style={styles.welcome}>
                 <Text style={styles.welcometext}>Hi,{'\n'} Coffee Lover ! </Text>
             </View>
-            <TouchableOpacity onPress={() => {navigation.navigate('DevInfo')}}>
-                <View style={[styles.button, {backgroundColor: 'rgba(250, 144, 95, 0.6)'}]}>
+            <TouchableOpacity onPress={() => { navigation.navigate('About') }}>
+                <View style={[styles.button, { backgroundColor: 'rgba(250, 144, 95, 0.6)' }]}>
                     <View style={styles.btnimage}>
-                        <Image source={ALogo} style={{alignSelf: 'flex-end', marginRight: 'auto'}}/>
+                        <Image source={ALogo} style={{ alignSelf: 'flex-end', marginRight: 'auto' }} />
                         <View style={styles.textcontainer}>
                             <Text style={styles.btntext}>About</Text>
                             <Text style={styles.btntext}>Cupp-A</Text>
@@ -24,9 +24,9 @@ const ProfileScreen = ({navigation}) => {
                 </View>
             </TouchableOpacity>
             <TouchableOpacity>
-                <View style={[styles.button, {backgroundColor: '#D1A38E'}]}>
+                <View style={[styles.button, { backgroundColor: '#D1A38E' }]}>
                     <View style={styles.btnimage}>
-                        <Image source={AMSlogo} style={{alignSelf: 'flex-end', marginRight: 'auto', marginLeft: 10, height: 60, width: 160}}/>
+                        <Image source={AMSlogo} style={{ alignSelf: 'flex-end', marginRight: 'auto', marginLeft: 10, height: 60, width: 160 }} />
                         <View style={styles.textcontainer}>
                             <Text style={styles.btntext}>Contact</Text>
                             <Text style={styles.btntext}>AMS</Text>
