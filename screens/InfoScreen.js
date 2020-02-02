@@ -10,7 +10,7 @@ const InfoScreen = () => {
             <Text style={styles.infoTitle}>
                 Info rating
              </Text>
-            <Image style={styles.infoImage} source={require('../assets/info.png')} />
+            <Image style={styles.infoImage} source={require('../assets/info-icon.png')} />
             <ScrollView style={styles.scrollcontainer}>
 
                 <Text style={styles.ratingTitle}>
@@ -178,7 +178,7 @@ const styles = StyleSheet.create({
         margin: 20,
     },
     scrollcontainer: {
-        padding: 8,
+        padding: 18,
         paddingTop: 30,
         backgroundColor: '#ffffff',
         borderRadius: 30,
@@ -225,7 +225,8 @@ const styles = StyleSheet.create({
     },
     ratingTitle: {
         fontSize: 20,
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        marginTop: 20,
     },
     ratingSubTitle: {
         fontSize: 18,

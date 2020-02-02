@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "JAIL",
-    "slug": "JAIL",
+    "name": "Cuppa",
+    "slug": "Cuppa",
     "privacy": "public",
     "sdkVersion": "36.0.0",
     "platforms": [
@@ -24,12 +24,16 @@
       "**/*"
     ],
     "ios": {
+      "buildNumber": "1.0.0",
+      "bundleIdentifier": "becode.ams.cuppa",
       "supportsTablet": true,
       "config": {
         "googleMapsApiKey": "AIzaSyAJM1dsmCOWdayRc4ohxQoNCkrlBhSECsg"
       }
     },
     "android": {
+      "package": "becode.ams.cuppa",
+      "versionCode": 1,
       "config": {
         "googleMaps": {
           "apiKey" : "AIzaSyBdQJlVyY8fWqWo9709y3gLpB8DWsKJLnw"
