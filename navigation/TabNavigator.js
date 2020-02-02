@@ -14,18 +14,20 @@ import InfoScreen from '../screens/InfoScreen'
 import LoginScreen from '../screens/LoginScreen';
 import LoadingScreen from '../screens/LoadingScreen';
 
+import normalize from 'react-native-normalize';
+
+
 const screenWidth = Math.round(Dimensions.get('window').width)
-const horizontalMargin = (screenWidth - 270) / 2
 
 export const AppNavigator = createStackNavigator({
-    Login: {
-        screen: LoginScreen,
+    Loading: {
+        screen: LoadingScreen,
         navigationOptions: {
             headerShown: false
         }
     },
-    Loading: {
-        screen: LoadingScreen,
+    Login: {
+        screen: LoginScreen,
         navigationOptions: {
             headerShown: false
         }
@@ -34,19 +36,19 @@ export const AppNavigator = createStackNavigator({
         Map: {
             screen: MapScreen,
             navigationOptions: {
-                tabBarIcon: ({ tintColor }) => (<Feather name='map' size={24} color={tintColor} />),
+                tabBarIcon: ({ tintColor }) => (<Feather name='map' size={normalize(24)} color={tintColor} />),
             },
         },
         Profile: {
             screen: ProfileScreen,
             navigationOptions: {
-                tabBarIcon: ({ tintColor }) => (<MaterialIcons name='person' size={24} color={tintColor} />),
+                tabBarIcon: ({ tintColor }) => (<MaterialIcons name='person' size={normalize(24)} color={tintColor} />),
             },
         },
         Info: {
             screen: InfoScreen,
             navigationOptions: {
-                tabBarIcon: ({ tintColor }) => (<Feather name='info' size={24} color={tintColor} />),
+                tabBarIcon: ({ tintColor }) => (<Feather name='info' size={normalize(24)} color={tintColor} />),
             },
         },
     }, {
@@ -54,18 +56,19 @@ export const AppNavigator = createStackNavigator({
             inactiveTintColor: Colors.grey,
             activeTintColor: Colors.mainTint,
             style: {
-                backgroundColor: '#FFFFFF',
-                width: 270,
-                height: 60,
+                height: normalize(60, 'height'),
+                width: normalize(270),
                 position: 'absolute',
+                alignSelf: 'center',
+                justifyContent: 'center',
+                backgroundColor: '#FFFFFF',
                 borderTopColor: 'transparent',
                 shadowColor: 'rgba(0, 0, 0, 0.25)',
                 shadowOffset: { width: 4, height: 0 },
                 shadowRadius: 4,
                 shadowOpacity: 1,
-                borderRadius: 46,
-                marginBottom: '10%',
-                marginHorizontal: horizontalMargin
+                borderRadius: normalize(50),
+                marginBottom: normalize(50, 'height'),
             },
             showLabel: false,
         },
