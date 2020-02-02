@@ -43,15 +43,13 @@ const InfoScreen = () => {
                     We consider these 5 labels below as they are the 5 labels recognized in research conducted by the Sustainable Commodity Initiative3, which is a joint venture of the United Nations Conference on Trade and Development and IISD. {"\n"}
                     This research analyzes the labels on their ability to address the sustainability challenges surrounding the coffee value chain. Having this research at hand made it so that we were able to more objectively decide upon a rating in this category. {"\n"}
                     It was important for us to use the UN approved framework and certificated, because the rest of this project is also based on an UN initiative: the SDGs. {"\n"}
-                </Text>
-                <View>
                     <Image style={styles.imagePosition} source={require('../assets/12RespConsProd.png')} />
                     <Image style={styles.imagePosition} source={require('../assets/UTZCert.png')} />
                     <Image style={styles.imagePosition} source={require('../assets/RainforestAll.png')} />
                     <Image style={styles.imagePosition} source={require('../assets/FairTrade.png')} />
                     <Image style={styles.imagePosition} source={require('../assets/BioOrganic.png')} />
                     <Image style={styles.imagePosition} source={require('../assets/BirdFriendSmith.png')} />
-                </View>
+                </Text>
                 <Text style={styles.ratingSubTitle}>
                     2.  Alternative Food Options {"\n"}
                 </Text>
@@ -260,11 +258,11 @@ const styles = StyleSheet.create({
         fontSize: 10,
         color: 'blue',
     },
-    imagePosition: {
-        flexWrap: 'wrap',
-        justifyContent: 'flex-start',
-        flexDirection: 'row',
-    },
+    // imagePosition: {
+    //     flexWrap: 'wrap',
+    //     justifyContent: 'flex-start',
+    //     flexDirection: 'row',
+    // },
 })
 
 export default InfoScreen
