@@ -13,8 +13,7 @@ class LoadingScreen extends Component {
             if (user) {
                 this.props.navigation.navigate('Map')
             } else {
-                this.props.navigation.navigate('Map')
-                // this.props.navigation.navigate('Login')
+                this.props.navigation.navigate('Login')
             }
         })
     }
