@@ -18,7 +18,7 @@ const AboutScreen = ({ navigation }) => {
                 </Text>
                 <Text style={styles.alinea}>
                     This app is made for the consumer to make an informed choice of where to purchase your cup of coffee.
-                    But also for the coffee shops to learn from each other and improve their (way of being). {"\n"}
+                    But also for the coffee shops to learn from each other and improve. {"\n"}
                     So buy your cup of coffee wisely
                 </Text>
                 <Text style={styles.alinea}>
