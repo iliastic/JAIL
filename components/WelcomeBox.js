@@ -51,9 +51,9 @@ const styles = StyleSheet.create({
         paddingVertical: 'auto',
         backgroundColor: '#EAE8DB',
         borderRadius: 35,
-        transform: [
-            {translateY: '-50%'}
-        ]
+        // transform: [
+        //     {translateY: '-50%'}
+        // ]
     },
     textbox: {
         marginTop: 10,
