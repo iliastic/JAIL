@@ -3,19 +3,12 @@ import React, { Component } from 'react';
 import { View, StyleSheet, Image, Dimensions } from 'react-native';
 import { SocialIcon } from 'react-native-elements'
 import { Colors, Fonts, Borders } from '../constans/Base';
-import styled from 'styled-components';
-import SocialButton from '../components/SocialButton';
 import Logo from '../components/Logo';
-import FacebookIcon from '../components/Facebook';
-import GmailIcon from '../components/Gmail';
 import * as Google from 'expo-google-app-auth';
 import firebase from 'firebase';
 import normalize from 'react-native-normalize';
 
 import userbg from '../assets/loginBg.png'
-
-const screenWidth = Math.round(Dimensions.get('window').width)
-const horizontalMargin = (screenWidth - 270) / 2
 
 export default class Loginscreen extends Component {
 
@@ -89,13 +82,6 @@ export default class Loginscreen extends Component {
     render() {
         return (
             <View style={styles.container}>
-                {/* <SocialButton
-                    text="Continue with Google"
-                    textColor={'#FFFFFF;'}
-                    backgroundColor={Colors.mainTint}
-                    border={Borders.secondary}
-                    fontSize={Fonts.lg} />
-                <GmailIcon /> */}
                 <Logo style={{flex: 1}}/>
                 <SocialIcon
                     title='Sign in with google'
