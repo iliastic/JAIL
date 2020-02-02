@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from 'react'
-import { StyleSheet, View, Text, Dimensions, Button} from 'react-native'
+import React, { useState, useEffect } from 'react'
+import { StyleSheet, View, Text, Dimensions, Button } from 'react-native'
 
 import firebase from '../database/Firebase'
 import Map from '../components/Map'
@@ -15,7 +15,7 @@ const MapScreen = () => {
     return ref.onSnapshot(snapshot => {
       const list = []
       snapshot.forEach(doc => {
-        const {name, adres, ratingBeans, ratingFood, ratingPackage, ratingWaste, ratingEconomy, ratingSocial, ratingAwareness, score, hours, website, long, lat} = doc.data()
+        const { name, adres, ratingBeans, ratingFood, ratingPackage, ratingWaste, ratingEconomy, ratingSocial, ratingAwareness, score, hours, website, long, lat } = doc.data()
 
         list.push({
           key: doc.id,
@@ -37,28 +37,28 @@ const MapScreen = () => {
       })
       setData(list)
 
-      if (loading){
+      if (loading) {
         setLoading(false)
       }
     })
-    
+
   }, [])
 
   if (loading) {
-      return null
+    return null
   }
   return (
-    <Map data={data}/>
+    <Map data={data} />
   )
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },    
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
 })
 
 export default MapScreen
