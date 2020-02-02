@@ -1,6 +1,8 @@
 import React from 'react'
 import { StyleSheet, View, Text, Image } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
+import normalize from 'react-native-normalize';
+
 
 const InfoRating = () => {
 
@@ -145,12 +147,12 @@ const InfoRating = () => {
 
 const styles = StyleSheet.create({
     container: {
-        margin: 20,
+        margin: normalize(20),
         marginBottom: '15%'
     },
     scrollcontainer: {
-        padding: 8,
-        paddingTop: 30,
+        padding: normalize(8),
+        paddingTop: normalize(30),
         backgroundColor: '#ffffff',
         marginTop: '5%'
     },
@@ -166,7 +168,7 @@ const styles = StyleSheet.create({
     },
     alinea: {
         fontSize: 16,
-        lineHeight: 25,
+        lineHeight: normalize(25),
         letterSpacing: 0.03,
     },
     team: {
@@ -175,13 +177,13 @@ const styles = StyleSheet.create({
     },
     members: {
         fontSize: 16,
-        lineHeight: 25,
+        lineHeight: normalize(25),
         textAlign: 'center',
-        paddingBottom: 30
+        paddingBottom: normalize(30)
     },
     close: {
         alignSelf: 'flex-end',
-        padding: 20,
+        padding: normalize(20),
     },
     ratingTitle: {
         fontSize: 20,
@@ -193,11 +195,11 @@ const styles = StyleSheet.create({
     titleBorder: {
         borderBottomColor: '#BFB9B9',
         borderBottomWidth: 1,
-        marginBottom: 15,
-        marginTop: -10,
+        marginBottom: normalize(15),
+        marginTop: normalize(-10),
     },
     ratingButton: {
-        margin: 35,
+        margin: normalize(35),
     },
 })
 

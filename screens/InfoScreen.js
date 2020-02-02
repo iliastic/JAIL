@@ -3,6 +3,9 @@ import { StyleSheet, Text, View, Image, Dimensions, Linking } from 'react-native
 import { ScrollView } from 'react-native-gesture-handler';
 import ShowMore from 'react-native-show-more-button';
 
+import normalize from 'react-native-normalize';
+
+
 const InfoScreen = () => {
     return (
         <View>
@@ -175,19 +178,19 @@ const InfoScreen = () => {
 
 const styles = StyleSheet.create({
     container: {
-        margin: 20,
+        margin: normalize(20),
     },
     scrollcontainer: {
-        padding: 8,
-        paddingTop: 30,
+        padding: normalize(8),
+        paddingTop: normalize(30),
         backgroundColor: '#ffffff',
-        borderRadius: 30,
+        borderRadius: normalize(30),
     },
     infoTitle: {
         alignSelf: 'center',
-        marginTop: 80,
-        marginBottom: 29,
-        marginLeft: 30,
+        marginTop: normalize(80),
+        marginBottom: normalize(29),
+        marginLeft: normalize(30),
         color: '#784D4D',
         fontSize: 40,
     },
@@ -195,8 +198,8 @@ const styles = StyleSheet.create({
         position: 'absolute',
         left: 42,
         top: 80,
-        width: 50,
-        height: 51,
+        width: normalize(50, 'width'),
+        height: normalize(51, 'height'),
     },
     header: {
         alignSelf: 'center',
@@ -217,11 +220,11 @@ const styles = StyleSheet.create({
         fontSize: 16,
         lineHeight: 25,
         textAlign: 'center',
-        paddingBottom: 30
+        paddingBottom: normalize(30)
     },
     close: {
         alignSelf: 'flex-end',
-        padding: 20,
+        padding: normalize(20),
     },
     ratingTitle: {
         fontSize: 20,
@@ -233,22 +236,21 @@ const styles = StyleSheet.create({
     titleBorder: {
         borderBottomColor: '#BFB9B9',
         borderBottomWidth: 1,
-        marginBottom: 15,
+        marginBottom: normalize(15),
         marginTop: -10,
     },
     ratingButton: {
-        margin: 35,
+        margin: normalize(35),
     },
     backgroundImage: {
         position: 'absolute',
         zIndex: -1,
-        top: 0,
-        bottom: 0,
-        resizeMode: 'cover',
+        height: Dimensions.get('screen').height,
+        width: Dimensions.get('screen').width,
     },
     footnoteMargin: {
-        marginBottom: 295,
-        marginTop: 10,
+        marginBottom: normalize(295),
+        marginTop: normalize(10),
     },
     footnoteText: {
         fontSize: 10,
