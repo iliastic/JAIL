@@ -26,7 +26,7 @@ const guidelineBaseHeight = 680;
 
 const scale = size => width / guidelineBaseWidth * size;
 const verticalScale = size => height / guidelineBaseHeight * size;
-const moderateScale = (size, factor = 0.5) => size + ( scale(size) - size ) * factor;
+const moderateScale = (size, factor = 0.5) => size + (scale(size) - size) * factor;
 
 
 const screenWidth = Math.round(Dimensions.get('window').width)
@@ -87,7 +87,7 @@ export const AppNavigator = createStackNavigator({
             activeTintColor: Colors.mainTint,
             style: {
                 height: moderateScale(60, 0.4),
-                // height: normalize(60, 'height'),
+                height: normalize(60, 'height'),
                 width: normalize(270),
                 position: 'absolute',
                 alignSelf: 'center',

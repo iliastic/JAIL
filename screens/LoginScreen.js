@@ -83,15 +83,17 @@ export default class Loginscreen extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <Logo style={{flex: 1}}/>
-                <SocialIcon
-                    title='Sign in with google'
-                    onPress={this.signInWithGoogleAsync}
-                    button={true}
-                    light
-                    type='google'
-                    style={styles.button}
-                />
+                <Logo />
+                <View style={styles.buttonPosition}>
+                    <SocialIcon
+                        title='Sign in with google'
+                        onPress={this.signInWithGoogleAsync}
+                        button={true}
+                        light
+                        type='google'
+                        style={styles.button}
+                    />
+                </View>
                 <Image source={userbg} style={styles.background} />
             </View>
         )
@@ -114,5 +116,8 @@ const styles = StyleSheet.create({
     button: {
         marginBottom: normalize(200),
         width: normalize(250)
+    },
+    buttonPosition: {
+        flexDirection: 'row',
     }
 });
