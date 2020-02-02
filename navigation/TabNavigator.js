@@ -37,7 +37,7 @@ export const AppNavigator = createStackNavigator({
         screen: LoadingScreen,
         navigationOptions: {
             headerShown: false,
-            gesturesEnabled: false,
+            gestureEnabled: false,
             swipeEnabled: false,
         }
     },
@@ -45,7 +45,7 @@ export const AppNavigator = createStackNavigator({
         screen: LoginScreen,
         navigationOptions: {
             headerShown: false,
-            gesturesEnabled: false,
+            gestureEnabled: false,
             swipeEnabled: false,
         }
     },
@@ -69,7 +69,7 @@ export const AppNavigator = createStackNavigator({
             screen: ProfileScreen,
             navigationOptions: {
                 tabBarIcon: ({ tintColor }) => (<MaterialIcons name='person' size={24} color={tintColor} />),
-                gesturesEnabled: false,
+                gestureEnabled: false,
                 swipeEnabled: false,
             },
         },
@@ -77,7 +77,7 @@ export const AppNavigator = createStackNavigator({
             screen: InfoScreen,
             navigationOptions: {
                 tabBarIcon: ({ tintColor }) => (<Feather name='info' size={24} color={tintColor} />),
-                gesturesEnabled: false,
+                gestureEnabled: false,
                 swipeEnabled: false,
             },
         },
@@ -102,7 +102,7 @@ export const AppNavigator = createStackNavigator({
                 marginBottom: normalize(50, 'height'),
             },
             showLabel: false,
-            gesturesEnabled: false,
+            gestureEnabled: false,
             swipeEnabled: false,
 
         },
@@ -111,10 +111,10 @@ export const AppNavigator = createStackNavigator({
 }, {
     headerMode: 'none',
     navigationOptions: {
-        gesturesEnabled: false,
+        gestureEnabled: false,
         swipeEnabled: false,
     },
-    gesturesEnabled: false,
+    gestureEnabled: false,
     swipeEnabled: false,
 }
 )

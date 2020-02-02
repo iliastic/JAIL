@@ -9,7 +9,7 @@ const InfoNavigator = createStackNavigator({
     {
         navigationOptions: {
             headerShown: false,
-            gesturesEnabled: false
+            gestureEnabled: false
         }
     })
 
