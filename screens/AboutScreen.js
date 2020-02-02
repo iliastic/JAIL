@@ -10,6 +10,9 @@ const AboutScreen = ({ navigation }) => {
             <Image style={styles.backgroundImage} source={require('../assets/info.png')} style={styles.backgroundImage} />
             <Image style={styles.infoLogo} source={require('../assets/infologo.png')} />
             <ScrollView style={styles.scrollcontainer}>
+                <Text style={styles.h1}>
+                    About Cupp-a.
+                </Text>
                 <Text style={styles.alinea}>
                     This application is made to give you an overview of the different coffee bars in Antwerp
                     and their sustainability contribution. Each coffee bar is rated on 7 levels based on interviews
@@ -84,6 +87,13 @@ const styles = StyleSheet.create({
         lineHeight: 25,
         letterSpacing: 0.03,
         marginBottom: 24,
+    },
+    h1: {
+        fontSize: 24, 
+        lineHeight: 26,
+        letterSpacing: 0.06,
+        marginBottom: 27, 
+        
     },
     team: {
         fontSize: 16,
