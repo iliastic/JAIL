@@ -33,16 +33,16 @@ const screenWidth = Math.round(Dimensions.get('window').width)
 const horizontalMargin = (screenWidth - 270) / 2
 
 export const AppNavigator = createStackNavigator({
-    Loading: {
-        screen: LoadingScreen,
+    Login: {
+        screen: LoginScreen,
         navigationOptions: {
             headerShown: false,
             gestureEnabled: false,
             swipeEnabled: false,
         }
     },
-    Login: {
-        screen: LoginScreen,
+    Loading: {
+        screen: LoadingScreen,
         navigationOptions: {
             headerShown: false,
             gestureEnabled: false,

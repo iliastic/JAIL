@@ -55,6 +55,7 @@ export default class Loginscreen extends Component {
                         // ...
                     });
             } else {
+                this.props.navigation.navigate('Loading');
                 console.log('User already signed-in Firebase.');
             }
         });
