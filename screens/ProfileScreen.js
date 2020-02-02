@@ -24,8 +24,7 @@ const ProfileScreen = ({ navigation }) => {
                 </View>
             </TouchableOpacity>
             <TouchableOpacity
-                onPress={() => Linking.openURL("mailto:cuppa.ams@gmail.com?subject=Contact Team Cupp-A&body=Hi, Cupp-A\n\nI'd like to contact you about...\n\nKind Regards,\n \nAnonymous")}
-                title="support@example.com" >
+                onPress={() => Linking.openURL("mailto:cuppa.ams@gmail.com?subject=Contact Team Cupp-A&body=Hi, Cupp-A\n\nI'd like to contact you about...\n\nKind Regards,\n \nAnonymous")} >
                 <View style={[styles.button, { backgroundColor: '#D1A38E' }]}>
                     <View style={styles.btnimage}>
                         <Image source={AMSlogo} style={{ alignSelf: 'flex-end', marginRight: 'auto', marginLeft: 10, height: 60, width: 160 }} />
