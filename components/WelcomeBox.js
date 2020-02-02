@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native'
-
-import LaunchCheck from '../database/LaunchCheck'
+import { StyleSheet, Text, View, Image, TouchableOpacity, AsyncStorage } from 'react-native'
 
 import xclose from '../assets/xclose.png'
 
@@ -25,19 +23,21 @@ const WelcomeBox = () => {
     }
 
     useEffect(()=> {
-        checkStorage()
+        //checkStorage()
     },[])
-    
-    return firstLaunch ?
+
+    return (
     <View style={dismiss ? styles.none : styles.welcomebox}>
-        <TouchableOpacity onPress={dismissBox} style={{paddingHorizontal: 20}}><Image source={xclose} style={styles.close} /></TouchableOpacity>
+        <TouchableOpacity onPress={()=> {
+            dismissBox()
+            setStorage()
+        }} style={{padding: 15}}><Image source={xclose} style={styles.close} /></TouchableOpacity>
         <Text style={styles.textbox}>
-        Welcome to cupp-a, 
-        Made to explore and learn about the sustainability of Antwerp coffee venues. 
+            Welcome to cupp-a, 
+            Made to explore and learn about the sustainability of Antwerp coffee venues. 
         </Text>
-    </View> :
-    null
-}
+    </View> 
+)}
 
 const styles = StyleSheet.create({
     welcomebox: {
