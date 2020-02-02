@@ -181,7 +181,7 @@ const styles = StyleSheet.create({
         margin: normalize(20),
     },
     scrollcontainer: {
-        padding: normalize(8),
+        padding: normalize(18),
         paddingTop: normalize(30),
         backgroundColor: '#ffffff',
         borderRadius: normalize(30),
@@ -228,7 +228,8 @@ const styles = StyleSheet.create({
     },
     ratingTitle: {
         fontSize: 20,
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        marginTop: 20,
     },
     ratingSubTitle: {
         fontSize: 18,
