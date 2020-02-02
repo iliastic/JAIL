@@ -10,8 +10,9 @@ import FacebookIcon from '../components/Facebook';
 import GmailIcon from '../components/Gmail';
 import * as Google from 'expo-google-app-auth';
 import firebase from 'firebase';
+import normalize from 'react-native-normalize';
 
-import userbg from '../assets/userbg.png'
+import userbg from '../assets/loginBg.png'
 
 const screenWidth = Math.round(Dimensions.get('window').width)
 const horizontalMargin = (screenWidth - 270) / 2
@@ -99,7 +100,7 @@ export default class Loginscreen extends Component {
                 <SocialIcon
                     title='Sign in with google'
                     onPress={this.signInWithGoogleAsync}
-                    button
+                    button={true}
                     light
                     type='google'
                     style={styles.button}
@@ -114,7 +115,8 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#fff',
-        justifyContent: 'space-between'
+        alignItems: 'center',
+        justifyContent: 'center',
     },
     background: {
         position: 'absolute',
@@ -123,10 +125,7 @@ const styles = StyleSheet.create({
         width: Dimensions.get('screen').width,
     },
     button: {
-        flex: 1,
-        width: '60%',
-        // marginHorizontal: 'auto',
-        // marginVertical: '10%',
-        // height: (Dimensions.get('screen').height / 100) * 20,
+        marginBottom: normalize(200),
+        width: normalize(250)
     }
 });
