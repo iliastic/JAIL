@@ -1,13 +1,16 @@
 import { createStackNavigator } from 'react-navigation-stack'
-import DevInfoScreen from '../screens/DevInfoScreen'
+import AboutScreen from '../screens/AboutScreen'
 import ProfileScreen from '../screens/ProfileScreen'
 
 const InfoNavigator = createStackNavigator({
-    Profile: {screen: ProfileScreen}, 
-    DevInfo: {screen: DevInfoScreen},
-}, 
-{
-    headerMode: 'none'
-})
+    Profile: { screen: ProfileScreen },
+    About: { screen: AboutScreen },
+},
+    {
+        navigationOptions: {
+            headerShown: false,
+            gesturesEnabled: false
+        }
+    })
 
 export default InfoNavigator

@@ -13,42 +13,58 @@ import MapScreen from '../screens/MapScreen'
 import InfoScreen from '../screens/InfoScreen'
 import LoginScreen from '../screens/LoginScreen';
 import LoadingScreen from '../screens/LoadingScreen';
-
-import normalize from 'react-native-normalize';
-
+import AboutScreen from '../screens/AboutScreen';
 
 const screenWidth = Math.round(Dimensions.get('window').width)
+const horizontalMargin = (screenWidth - 270) / 2
 
 export const AppNavigator = createStackNavigator({
-    Loading: {
-        screen: LoadingScreen,
-        navigationOptions: {
-            headerShown: false
-        }
-    },
     Login: {
         screen: LoginScreen,
         navigationOptions: {
-            headerShown: false
+            headerShown: false,
+            gesturesEnabled: false,
+            swipeEnabled: false,
         }
+    },
+    Loading: {
+        screen: LoadingScreen,
+        navigationOptions: {
+            headerShown: false,
+            gesturesEnabled: false,
+            swipeEnabled: false,
+        }
+    },
+    About: {
+        screen: AboutScreen,
+        navigationOptions: {
+            headerShown: false,
+        }
+
     },
     Tab: createBottomTabNavigator({
         Map: {
             screen: MapScreen,
             navigationOptions: {
-                tabBarIcon: ({ tintColor }) => (<Feather name='map' size={normalize(24)} color={tintColor} />),
+                tabBarIcon: ({ tintColor }) => (<Feather name='map' size={24} color={tintColor} />),
+                gesturesEnabled: false,
+                swipeEnabled: false,
             },
         },
         Profile: {
             screen: ProfileScreen,
             navigationOptions: {
-                tabBarIcon: ({ tintColor }) => (<MaterialIcons name='person' size={normalize(24)} color={tintColor} />),
+                tabBarIcon: ({ tintColor }) => (<MaterialIcons name='person' size={24} color={tintColor} />),
+                gesturesEnabled: false,
+                swipeEnabled: false,
             },
         },
         Info: {
             screen: InfoScreen,
             navigationOptions: {
-                tabBarIcon: ({ tintColor }) => (<Feather name='info' size={normalize(24)} color={tintColor} />),
+                tabBarIcon: ({ tintColor }) => (<Feather name='info' size={24} color={tintColor} />),
+                gesturesEnabled: false,
+                swipeEnabled: false,
             },
         },
     }, {
@@ -56,25 +72,36 @@ export const AppNavigator = createStackNavigator({
             inactiveTintColor: Colors.grey,
             activeTintColor: Colors.mainTint,
             style: {
-                height: normalize(60, 'height'),
-                width: normalize(270),
-                position: 'absolute',
-                alignSelf: 'center',
-                justifyContent: 'center',
                 backgroundColor: '#FFFFFF',
+                width: 270,
+                height: 60,
+                position: 'absolute',
                 borderTopColor: 'transparent',
                 shadowColor: 'rgba(0, 0, 0, 0.25)',
                 shadowOffset: { width: 4, height: 0 },
                 shadowRadius: 4,
                 shadowOpacity: 1,
-                borderRadius: normalize(50),
-                marginBottom: normalize(50, 'height'),
+                borderRadius: 46,
+                marginBottom: '10%',
+                marginHorizontal: horizontalMargin,
+                gesturesEnabled: false,
             },
             showLabel: false,
+            gesturesEnabled: false,
+            swipeEnabled: false,
+
         },
     },
     ),
-}, { headerMode: 'none', }
+}, {
+    headerMode: 'none',
+    navigationOptions: {
+        gesturesEnabled: false,
+        swipeEnabled: false,
+    },
+    gesturesEnabled: false,
+    swipeEnabled: false,
+}
 )
 
 export const Navigator = createAppContainer(AppNavigator)
