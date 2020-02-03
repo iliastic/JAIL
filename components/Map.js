@@ -314,11 +314,13 @@ const styles = StyleSheet.create({
     borderBottomRightRadius: 15,
     borderBottomLeftRadius: 15,
     paddingHorizontal: 10,
+    zIndex: 9999
   },
   listitem: {
     marginBottom: 7,
     paddingBottom: 5, 
     paddingTop: 5,
+    zIndex: 9999
   }
 })
 
