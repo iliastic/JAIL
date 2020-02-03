@@ -316,7 +316,9 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
   },
   listitem: {
-    marginBottom: 5
+    marginBottom: 7,
+    paddingBottom: 5, 
+    paddingTop: 5,
   }
 })
 
