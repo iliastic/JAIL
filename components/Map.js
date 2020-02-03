@@ -9,7 +9,8 @@ import {
   Text, 
   Platform, 
   TextInput, 
-  Keyboard 
+  Keyboard,
+  ScrollView
 } from 'react-native'
 import MapView, { Marker, PROVIDER_GOOGLE } from 'react-native-maps'
 import * as WebBrowser from 'expo-web-browser'
@@ -164,9 +165,9 @@ const Map = props => {
           <TouchableOpacity style={styles.searchicon} onPress={handleSearch}>
             <MaterialIcons name='search' color='#FF5100' size={25}/>
           </TouchableOpacity>
-          <View style={styles.searchresults}>
+          <ScrollView style={styles.searchresults}>
             {createSearch()}
-          </View>
+          </ScrollView>
         </View>
         <WelcomeBox />
             {markerData !== undefined &&
