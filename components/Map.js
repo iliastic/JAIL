@@ -277,8 +277,8 @@ const styles = StyleSheet.create({
     position: 'relative',
     borderRadius: 15,
     backgroundColor: '#fff',
-    borderWidth: 1,
-    borderColor: '#000'
+    borderWidth: 3,
+    borderColor: '#FF5100'
   },
   search: {
     width: '80%',
