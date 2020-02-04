@@ -253,7 +253,9 @@ const Map = props => {
                     <View style={[styles.ratingbar, handleRating(markerData.ratingAwareness)]}><Image source={ratingbar} alt='rating coffee' style={styles.ratingimg}/></View>
                   </View>
                 </View>
-                <Button style={styles.website} title='visit website' onPress={handleWebsite}/>
+                <View style={styles.website}>
+                  <Button title='visit website' color='#FF5100' onPress={handleWebsite}/>
+                </View>
               </View>
             </Modal>
           </View>
@@ -357,6 +359,11 @@ const styles = StyleSheet.create({
     paddingTop: 5,
     zIndex: 9999,
     backgroundColor: '#fff',
+  },
+  website: {
+    width: '50%',
+    marginHorizontal: '25%',
+    marginTop: 5
   }
 })
 
