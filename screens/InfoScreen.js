@@ -274,8 +274,9 @@ const styles = StyleSheet.create({
         left: 42,
         top: 80,
         width: normalize(50, 'width'),
-        height: normalize(51, 'height'),
+        height: normalize(50, 'height'),
         resizeMode: 'cover',
+        overflow: 'visible'
     },
     header: {
         alignSelf: 'center',
