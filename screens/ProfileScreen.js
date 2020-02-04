@@ -59,7 +59,11 @@ const styles = StyleSheet.create({
         marginHorizontal: 'auto',
         marginVertical: '8%',
         height: (Dimensions.get('screen').height / 100) * 20,
-        borderRadius: 30
+        borderRadius: 30,
+        shadowColor: 'rgba(0, 0, 0, 0.25)',
+        shadowOffset: { width: 4, height: 0 },
+        shadowRadius: 4,
+        shadowOpacity: 1,
     },
     welcometext: {
         fontSize: 35,

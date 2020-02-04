@@ -100,6 +100,7 @@ export const AppNavigator = createStackNavigator({
                 shadowOpacity: 1,
                 borderRadius: normalize(50),
                 marginBottom: normalize(50, 'height'),
+                elevation: 5
             },
             showLabel: false,
             gestureEnabled: false,
