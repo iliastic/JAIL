@@ -1,16 +1,25 @@
 import React from 'react'
 import { StyleSheet, Text, View, Image, Dimensions, Linking } from 'react-native'
 import { ScrollView } from 'react-native-gesture-handler';
-import ShowMore from 'react-native-show-more-button';
+
+import normalize from 'react-native-normalize';
+
 
 const InfoScreen = () => {
     return (
         <View>
+            <View style={styles.titleContainer}>
+                <View style={styles.infoImage} >
+                    <Image source={require('../assets/info-icon.png')} />
+                </View>
+                <View>
+                    <Text style={styles.infoTitle}>
+                        Info rating
+                    </Text>
+                </View>
+            </View>
+
             <Image style={styles.backgroundImage} source={require('../assets/InfoRatingBG.png')} style={styles.backgroundImage} />
-            <Text style={styles.infoTitle}>
-                Info rating
-             </Text>
-            <Image style={styles.infoImage} source={require('../assets/info-icon.png')} />
             <ScrollView style={styles.scrollcontainer}>
 
                 <Text style={styles.ratingTitle}>
@@ -19,17 +28,15 @@ const InfoScreen = () => {
                 <View
                     style={styles.titleBorder}
                 />
-                <ShowMore height={100} buttonColor={'#8B8080'} showMoreText="read more" showLessText="close">
-                    <Text style={styles.alinea}>
-                        The entire project is built around SDG 12: responsible consumption and production. The app aims to impact the way people make decisions in their (coffee) consuming behavior.
-                        The rating system of the coffee shops is based on 7 categories that, when seen together, make sure all aspects of sustainability as they are included in the Sustainable Development Goals are taken into account.
-                        Since some of the SDGs are however clearly addressed towards governments, we took in that case the corresponding Sustainable Lifestyle Goals, also known as the Good Life Goals2, into account.
-                        These goals focus more on the public and how they can individually take action and support the Sustainable Development Goals. Considering both frameworks, we were able to include all 17 goals in the following 7 categories.
-                        The questions that were asked in relation to the categories will be indicated. One can find the full questionnaire at the end of this document in the appendix. We used an all-or-nothing approach to marking the coffee bars on the 7 categories. Either they got the full mark or they received no mark. Eventually a coffee bar ends up with a score out of 7.
-                        For the first category the decision of giving the mark was decided by the fact whether the coffee beans are supported by a label and what value that label has. For categories 2-7, a 50% rule was used.
-                        This means that a coffee bar got the full mark for the category if they answered positively to 50% or more of the sub questions. Situations in which the question was Not Applicable (NA) or non-answers were disregarded in respect to the 50% rule.
+                <Text style={styles.alinea}>
+                    The entire project is built around SDG 12: responsible consumption and production. The app aims to impact the way people make decisions in their (coffee) consuming behavior.
+                    The rating system of the coffee shops is based on 7 categories that, when seen together, make sure all aspects of sustainability as they are included in the Sustainable Development Goals are taken into account.
+                    Since some of the SDGs are however clearly addressed towards governments, we took in that case the corresponding Sustainable Lifestyle Goals, also known as the Good Life Goals2, into account.
+                    These goals focus more on the public and how they can individually take action and support the Sustainable Development Goals. Considering both frameworks, we were able to include all 17 goals in the following 7 categories.
+                    The questions that were asked in relation to the categories will be indicated. One can find the full questionnaire at the end of this document in the appendix. We used an all-or-nothing approach to marking the coffee bars on the 7 categories. Either they got the full mark or they received no mark. Eventually a coffee bar ends up with a score out of 7.
+                    For the first category the decision of giving the mark was decided by the fact whether the coffee beans are supported by a label and what value that label has. For categories 2-7, a 50% rule was used.
+                    This means that a coffee bar got the full mark for the category if they answered positively to 50% or more of the sub questions. Situations in which the question was Not Applicable (NA) or non-answers were disregarded in respect to the 50% rule.
                         </Text>
-                </ShowMore>
                 <Text style={styles.ratingSubTitle}>
                     1.  Coffee Beans {"\n"}
                 </Text>
@@ -40,13 +47,58 @@ const InfoScreen = () => {
                     We consider these 5 labels below as they are the 5 labels recognized in research conducted by the Sustainable Commodity Initiative3, which is a joint venture of the United Nations Conference on Trade and Development and IISD. {"\n"}
                     This research analyzes the labels on their ability to address the sustainability challenges surrounding the coffee value chain. Having this research at hand made it so that we were able to more objectively decide upon a rating in this category. {"\n"}
                     It was important for us to use the UN approved framework and certificated, because the rest of this project is also based on an UN initiative: the SDGs. {"\n"}
-                    <Image source={require('../assets/12RespConsProd.png')} />
-                    <Image source={require('../assets/UTZCert.png')} />
-                    <Image source={require('../assets/RainforestAll.png')} />
-                    <Image source={require('../assets/FairTrade.png')} />
-                    <Image source={require('../assets/BioOrganic.png')} />
-                    <Image source={require('../assets/BirdFriendSmith.png')} /> {"\n"}
                 </Text>
+                <View style={styles.imageContainer}>
+                    <View style={styles.imagePosition} >
+                        <Image source={require('../assets/12RespConsProd.png')} />
+                    </View>
+                    <View style={styles.imagePosition}>
+                        <Image style={styles.images} source={require('../assets/UTZCert.png')} />
+                    </View>
+                </View>
+                <View style={styles.textContainer}>
+                    <View >
+                        <Text style={styles.textQ1_UTZ}>
+                            Q1
+                    </Text>
+                    </View>
+                    <View >
+                        <Text style={styles.textQ1_UTZ} >
+                            UTZ
+                    </Text>
+                    </View>
+                </View>
+                <View style={styles.imageContainer}>
+                    <View style={styles.imagePosition} >
+                        <Image style={styles.images} source={require('../assets/RainforestAll.png')} />
+                    </View>
+                    <View style={styles.imagePosition}>
+                        <Image style={styles.images} source={require('../assets/FairTrade.png')} />
+                    </View>
+                </View>
+                <View style={styles.textContainer}>
+                    <View >
+                        <Text style={styles.textRain}>
+                            Rainforest Alliance
+                    </Text>
+                    </View>
+                </View>
+                <View style={styles.imageContainer}>
+                    <View style={styles.imagePosition} >
+                        <Image style={styles.images} source={require('../assets/BioOrganic.png')} />
+                    </View>
+                    <View style={styles.imagePosition}>
+                        <Image style={styles.images} source={require('../assets/BirdFriendSmith.png')} />
+                    </View>
+                </View>
+                <View style={styles.textContainer}>
+                    <View style={{ marginBottom: '10%' }}>
+                        <Text style={styles.textBio_Smith}>
+                            Bio/Organic
+                    </Text>
+                    </View>
+                </View>
+
                 <Text style={styles.ratingSubTitle}>
                     2.  Alternative Food Options {"\n"}
                 </Text>
@@ -55,10 +107,16 @@ const InfoScreen = () => {
                 />
                 <Text style={styles.alinea}>
                     -   Vegan/Veggie Options (Q3a) {"\n"}
-                    -   Organic Milk Options (Q10) {"\n"}
-                    <Image source={require('../assets/2EatBetter.png')} />
-                    <Image source={require('../assets/12RespConsProd.png')} /> {"\n"}
+                    -   Organic Milk Options (Q10)
                 </Text>
+                <View style={styles.imageContainer}>
+                    <View style={styles.imagePosition} >
+                        <Image source={require('../assets/2EatBetter.png')} />
+                    </View>
+                    <View style={styles.imagePosition}>
+                        <Image source={require('../assets/12RespConsProd.png')} />
+                    </View>
+                </View>
                 <Text style={styles.ratingSubTitle}>
                     3.  Packaging {"\n"}
                 </Text>
@@ -68,9 +126,13 @@ const InfoScreen = () => {
                 <Text style={styles.alinea}>
                     -  Takeaway Material (Q2) {"\n"}
                     -  Milk/Sugar/Cookie (Q3b) {"\n"}
-                    -  Extra Efforts (Q13) {"\n"}
-                    <Image source={require('../assets/12RespConsProd.png')} /> {"\n"}
+                    -  Extra Efforts (Q13)
                 </Text>
+                <View style={styles.imageContainer}>
+                    <View style={styles.imagePosition} >
+                        <Image source={require('../assets/12RespConsProd.png')} />
+                    </View>
+                </View>
                 <Text style={styles.ratingSubTitle}>
                     4.  Waste Management {"\n"}
                 </Text>
@@ -79,9 +141,13 @@ const InfoScreen = () => {
                 />
                 <Text style={styles.alinea}>
                     -  Coffee and food waste (Q14) {"\n"}
-                    -  Energy (Q8) and water (Q9) {"\n"}
-                    <Image source={require('../assets/11SustCitiesCommunities.png')} /> {"\n"}
+                    -  Energy (Q8) and water (Q9)
                 </Text>
+                <View style={styles.imageContainer}>
+                    <View style={styles.imagePosition} >
+                        <Image source={require('../assets/11SustCitiesCommunities.png')} />
+                    </View>
+                </View>
                 <Text style={styles.ratingSubTitle}>
                     5.  Local Economy {"\n"}
                 </Text>
@@ -90,9 +156,13 @@ const InfoScreen = () => {
                 />
                 <Text style={styles.alinea}>
                     -  Local economy support (Q11) {"\n"}
-                    -  Loyalty card (Q12) {"\n"}
-                    <Image source={require('../assets/11LoveWhereYouLive.png')} /> {"\n"}
+                    -  Loyalty card (Q12)
                 </Text>
+                <View style={styles.imageContainer}>
+                    <View style={styles.imagePosition} >
+                        <Image source={require('../assets/11LoveWhereYouLive.png')} />
+                    </View>
+                </View>
                 <Text style={styles.ratingSubTitle}>
                     6.  Social Impact {"\n"}
                 </Text>
@@ -101,9 +171,16 @@ const InfoScreen = () => {
                 />
                 <Text style={styles.alinea}>
                     -  Gender equality (Q6) {"\n"}
-                    -  No discrimination on the basis of nationality (Q6) {"\n"}
-                    <Image source={require('../assets/5TreatEveryoneEqually.png')} /> {"\n"}
+                    -  No discrimination on the basis of nationality (Q6)
                 </Text>
+                <View style={styles.imageContainer}>
+                    <View style={styles.imagePosition} >
+                        <Image source={require('../assets/5TreatEveryoneEqually.png')} />
+                    </View>
+                    <View style={styles.imagePosition} >
+                        <Image source={require('../assets/10ReduceInequalities.png')} />
+                    </View>
+                </View>
                 <Text style={styles.ratingSubTitle}>
                     7.  Sustainability Awareness {"\n"}
                 </Text>
@@ -113,9 +190,13 @@ const InfoScreen = () => {
                 <Text style={styles.alinea}>
                     -  Value in business from sustainability efforts (Q4) {"\n"}
                     -  Objectives or targets towards sustainability (Q5) {"\n"}
-                    -  Sustainability high on the agenda (Q7) {"\n"}
-                    <Image style={styles.images} source={require('../assets/8DoGoodWork.png')} /> {"\n"}
+                    -  Sustainability high on the agenda (Q7)
                 </Text>
+                <View style={styles.imageContainer}>
+                    <View style={styles.imagePosition} >
+                        <Image style={styles.images} source={require('../assets/8DoGoodWork.png')} />
+                    </View>
+                </View>
                 <Text style={styles.ratingTitle}>
                     II.  Flaws in the rating system {"\n"}
                 </Text>
@@ -165,38 +246,35 @@ const InfoScreen = () => {
                         https://www.wbcsd.org/Programs/People/Sustainable-Lifestyles/News/Personal-actions-that-everyone-can-take-to-support-the-SDGs {"\n"}
                     </Text>
                     <Text style={styles.footnoteText} onPress={() => Linking.openURL('http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.453.2341&rep=rep1&type=pdf')}>
-                        http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.453.2341&rep=rep1&type=pdf
-                </Text>
+                        http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.453.2341&rep=rep1&type=pdf {"\n"}
+                    </Text>
                 </View>
             </ScrollView>
-        </View>
+        </View >
     )
 }
 
 const styles = StyleSheet.create({
     container: {
-        margin: 20,
+        margin: normalize(20),
     },
     scrollcontainer: {
-        padding: 18,
-        paddingTop: 30,
+        padding: '7%',
+        paddingTop: normalize(30),
         backgroundColor: '#ffffff',
-        borderRadius: 30,
+        borderRadius: normalize(30),
     },
     infoTitle: {
         alignSelf: 'center',
-        marginTop: 80,
-        marginBottom: 29,
-        marginLeft: 30,
+        marginLeft: '15%',
+        marginTop: '25%',
+        marginBottom: '10%',
         color: '#784D4D',
         fontSize: 40,
     },
     infoImage: {
-        position: 'absolute',
-        left: 42,
-        top: 80,
-        width: 50,
-        height: 51,
+        marginTop: '18%',
+        marginBottom: '10%',
     },
     header: {
         alignSelf: 'center',
@@ -217,11 +295,11 @@ const styles = StyleSheet.create({
         fontSize: 16,
         lineHeight: 25,
         textAlign: 'center',
-        paddingBottom: 30
+        paddingBottom: normalize(30)
     },
     close: {
         alignSelf: 'flex-end',
-        padding: 20,
+        padding: normalize(20),
     },
     ratingTitle: {
         fontSize: 20,
@@ -234,26 +312,67 @@ const styles = StyleSheet.create({
     titleBorder: {
         borderBottomColor: '#BFB9B9',
         borderBottomWidth: 1,
-        marginBottom: 15,
+        marginBottom: normalize(15),
         marginTop: -10,
     },
     ratingButton: {
-        margin: 35,
+        margin: normalize(35),
     },
     backgroundImage: {
         position: 'absolute',
         zIndex: -1,
-        top: 0,
-        bottom: 0,
-        resizeMode: 'cover',
+        height: Dimensions.get('screen').height,
+        width: Dimensions.get('screen').width,
     },
     footnoteMargin: {
-        marginBottom: 295,
-        marginTop: 10,
+        marginBottom: normalize(295),
+        marginTop: normalize(10),
     },
     footnoteText: {
         fontSize: 10,
         color: 'blue',
+    },
+    imageContainer: {
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        alignSelf: 'center',
+    },
+    imagePosition: {
+        padding: '5%',
+        marginBottom: '5%',
+    },
+    textContainer: {
+        flexDirection: 'row',
+    },
+    textQ1_UTZ: {
+        alignSelf: "center",
+        marginLeft: '27%',
+        marginRight: '12%',
+        marginBottom: '5%',
+        fontSize: 18,
+        textAlign: 'center',
+        lineHeight: 30,
+    },
+    textBio_Smith: {
+        flex: 1,
+        alignSelf: "center",
+        marginLeft: '20%',
+        fontSize: 18,
+        textAlign: 'center',
+        lineHeight: 30,
+    },
+    textRain: {
+        alignSelf: "center",
+        marginLeft: '10%',
+        marginBottom: '5%',
+        fontSize: 18,
+        textAlign: 'center',
+        lineHeight: 30,
+    },
+    titleContainer: {
+        flexDirection: 'row',
+        alignSelf: "center",
+        margin: 20
     }
 })
 

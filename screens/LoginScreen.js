@@ -55,6 +55,7 @@ export default class Loginscreen extends Component {
                         // ...
                     });
             } else {
+                this.props.navigation.navigate('Loading');
                 console.log('User already signed-in Firebase.');
             }
         });
@@ -82,15 +83,16 @@ export default class Loginscreen extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <Logo style={{flex: 1}}/>
-                <SocialIcon
-                    title='Sign in with google'
-                    onPress={this.signInWithGoogleAsync}
-                    button={true}
-                    light
-                    type='google'
-                    style={styles.button}
-                />
+                <Logo />
+                <View style={styles.buttonPosition}>
+                    <SocialIcon
+                        title='Sign in with google'
+                        onPress={this.signInWithGoogleAsync}
+                        button={true}
+                        type='google'
+                        style={styles.button}
+                    />
+                </View>
                 <Image source={userbg} style={styles.background} />
             </View>
         )
@@ -111,7 +113,9 @@ const styles = StyleSheet.create({
         width: Dimensions.get('screen').width,
     },
     button: {
-        marginBottom: normalize(200),
-        width: normalize(250)
-    }
+        marginTop: normalize(120),
+        marginBottom: normalize(120),
+        width: normalize(250),
+        backgroundColor: '#FF5100',
+    },
 });

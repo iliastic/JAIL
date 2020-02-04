@@ -10,6 +10,9 @@ const AboutScreen = ({ navigation }) => {
             <Image style={styles.backgroundImage} source={require('../assets/info.png')} style={styles.backgroundImage} />
             <Image style={styles.infoLogo} source={require('../assets/infologo.png')} />
             <ScrollView style={styles.scrollcontainer}>
+                <Text style={styles.h1}>
+                    About Cupp-a.
+                </Text>
                 <Text style={styles.alinea}>
                     This application is made to give you an overview of the different coffee bars in Antwerp
                     and their sustainability contribution. Each coffee bar is rated on 7 levels based on interviews
@@ -18,7 +21,7 @@ const AboutScreen = ({ navigation }) => {
                 </Text>
                 <Text style={styles.alinea}>
                     This app is made for the consumer to make an informed choice of where to purchase your cup of coffee.
-                    But also for the coffee shops to learn from each other and improve their (way of being). {"\n"}
+                    But also for the coffee shops to learn from each other and improve. {"\n"}
                     So buy your cup of coffee wisely
                 </Text>
                 <Text style={styles.alinea}>
@@ -84,6 +87,13 @@ const styles = StyleSheet.create({
         lineHeight: 25,
         letterSpacing: 0.03,
         marginBottom: 24,
+    },
+    h1: {
+        fontSize: 24, 
+        lineHeight: 26,
+        letterSpacing: 0.06,
+        marginBottom: 27, 
+        
     },
     team: {
         fontSize: 16,
