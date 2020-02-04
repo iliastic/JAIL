@@ -1,6 +1,7 @@
 
 import React, { Component } from 'react';
 import { View, StyleSheet, Image } from 'react-native';
+import normalize from 'react-native-normalize';
 
 
 export default class Logo extends Component {
@@ -18,6 +19,8 @@ export default class Logo extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'flex-end'
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginTop: normalize(50)
     },
 });
