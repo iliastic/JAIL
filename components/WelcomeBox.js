@@ -33,7 +33,7 @@ const WelcomeBox = () => {
             setStorage()
         }} style={{padding: 15}}><Image source={xclose} style={styles.close} /></TouchableOpacity>
         <Text style={styles.textbox}>
-            Welcome to cupp-a, 
+            Welcome to cupp-a,.
             Made to explore and learn about the sustainability of Antwerp coffee venues. 
         </Text>
     </View> 
