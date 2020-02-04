@@ -31,9 +31,41 @@ const Map = props => {
     const [searchInput, setSearchInput] = useState('')
     const [names, setNames] = useState([])
     const [suggestions, setSuggestions] = useState([])
+    const [focus, setFocus] = useState(false)
 
     const handleInput = (target) => {
       setSearchInput(target.nativeEvent.text)
+    }
+
+    const searchStyle = () => {
+      if (focus){
+        return (
+          {
+            width: '80%',
+            marginHorizontal: '10%',
+            height: 320,
+            paddingBottom: 20
+          }
+        )
+      }
+      if (!focus){
+        return ({
+          width: 50,
+          marginLeft: '80%',
+          height: 50,
+        }
+       )
+      }
+    }
+
+    const searchHandler = () => {
+      if (focus){
+        setFocus(false)
+        setSuggestions([])
+      }
+      if (!focus){
+        setFocus(true)
+      }
     }
 
     const createSearch = () => {
@@ -48,6 +80,8 @@ const Map = props => {
             setMarkerId(suggestions[i].key)
             setVisible(true)
             setSuggestions([])
+            setFocus(false)
+            setSearchInput('')
           }}>
             <Text>{suggestions[i].name}</Text>
           </TouchableOpacity>
@@ -134,6 +168,7 @@ const Map = props => {
             onPress={ () => {
               Keyboard.dismiss()
               setSuggestions([])
+              setFocus(false)
             }
             }
             >
@@ -152,17 +187,18 @@ const Map = props => {
                 )
             })}
         </MapView>
-        <View style={styles.searchcontainer}>
+        <View style={[styles.searchcontainer, searchStyle()]}>
           <TextInput 
             id='search'
             style={styles.search} 
-            placeholder='search ...' 
+            placeholder={focus ? 'search...' : ''} 
             clearButtonMode='while-editing' 
             onChange={handleInput}
             onChangeText={handleSearch}
             value={searchInput}
+            editable={focus}
           />
-          <TouchableOpacity style={styles.searchicon} onPress={handleSearch}>
+          <TouchableOpacity style={styles.searchicon} onPress={() => {handleSearch(); searchHandler()}}>
             <MaterialIcons name='search' color='#FF5100' size={25}/>
           </TouchableOpacity>
           <ScrollView style={styles.searchresults}>
@@ -237,14 +273,12 @@ const styles = StyleSheet.create({
   },
   searchcontainer: {
     flexDirection: 'row',
-    width: '80%',
-    marginHorizontal: '10%',
     marginTop: '12%',
-    height: 50,
-    backgroundColor: '#fff',
     position: 'relative',
-    borderTopRightRadius: 15,
-    borderTopLeftRadius: 15,
+    borderRadius: 15,
+    backgroundColor: '#fff',
+    borderWidth: 1,
+    borderColor: '#000'
   },
   search: {
     width: '80%',
@@ -311,17 +345,18 @@ const styles = StyleSheet.create({
     ],
     position: 'absolute',
     width: '100%',
-    backgroundColor: '#fff',
     borderBottomRightRadius: 15,
     borderBottomLeftRadius: 15,
     paddingHorizontal: 10,
-    zIndex: 9999
+    zIndex: 9999,
+    height: '100%'
   },
   listitem: {
     marginBottom: 7,
     paddingBottom: 5, 
     paddingTop: 5,
-    zIndex: 9999
+    zIndex: 9999,
+    backgroundColor: '#fff',
   }
 })
 
