@@ -1,5 +1,6 @@
 import React from 'react'
 import { StyleSheet, Text, View, Image, TouchableOpacity, Dimensions, Linking } from 'react-native'
+import { email } from 'react-native-communications'
 
 import userbg from '../assets/userbg.png'
 import ALogo from '../assets/ALogo.png'
@@ -24,7 +25,7 @@ const ProfileScreen = ({ navigation }) => {
                 </View>
             </TouchableOpacity>
             <TouchableOpacity
-                onPress={() => Linking.openURL("mailto:cuppa.ams@gmail.com?subject=Contact Team Cupp-A&body=Hi, Cupp-A<br><br>I'd like to contact you about...<br><br>Kind Regards,<br>")}>
+                onPress={() => {email(['cuppa.ams@gmail.com'],null,null,'CUPP-A','Ask your questions')}}>
                 <View style={[styles.button, { backgroundColor: '#D1A38E' }]}>
                     <View style={styles.btnimage}>
                         <Image source={AMSlogo} style={{ alignSelf: 'flex-end', marginRight: 'auto', marginLeft: 10, height: 60, width: 160 }} />
@@ -58,7 +59,11 @@ const styles = StyleSheet.create({
         marginHorizontal: 'auto',
         marginVertical: '8%',
         height: (Dimensions.get('screen').height / 100) * 20,
-        borderRadius: 30
+        borderRadius: 30,
+        shadowColor: 'rgba(0, 0, 0, 0.25)',
+        shadowOffset: { width: 4, height: 0 },
+        shadowRadius: 4,
+        shadowOpacity: 1,
     },
     welcometext: {
         fontSize: 35,

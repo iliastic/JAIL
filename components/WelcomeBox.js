@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { StyleSheet, Text, View, Image, TouchableOpacity, AsyncStorage } from 'react-native'
 
 import xclose from '../assets/xclose.png'
+import welcomebox from '../assets/welcome-box.png'
 
 const WelcomeBox = () => {
 
@@ -33,9 +34,10 @@ const WelcomeBox = () => {
             setStorage()
         }} style={{padding: 15}}><Image source={xclose} style={styles.close} /></TouchableOpacity>
         <Text style={styles.textbox}>
-            Welcome to cupp-a, 
+            Welcome to cupp-a,{'\n'}
             Made to explore and learn about the sustainability of Antwerp coffee venues. 
         </Text>
+        <Image source={welcomebox} style={styles.background}/>
     </View> 
 )}
 
@@ -53,23 +55,34 @@ const styles = StyleSheet.create({
         borderRadius: 35,
         transform: [
             {translateY: -130}
-        ]
+        ],
+        overflow: 'hidden'
     },
     textbox: {
-        marginTop: 10,
+        marginTop: 5,
         width: '100%',
         height: 160,
-        backgroundColor: '#FFF',
+        backgroundColor: 'rgba(255, 255, 255, 0.6)',
         padding: 10,
         textAlign: 'center',
         paddingTop: 50,
-        color: '#784D4D'
+        color: '#784D4D',
+        textTransform: 'uppercase',
+        fontWeight: 'bold'
     },
     close : {
         alignSelf: 'flex-end',
     },
     none: {
         display: 'none'
+    },
+    background: {
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        width: '100%',
+        zIndex: -1,
+        
     }
 })
 
