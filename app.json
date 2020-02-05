@@ -29,7 +29,9 @@
       "supportsTablet": true,
       "config": {
         "googleMapsApiKey": "AIzaSyAJM1dsmCOWdayRc4ohxQoNCkrlBhSECsg"
-      }
+      },
+      "permissions": []
+
     },
     "android": {
       "package": "becode.ams.cuppa",
@@ -38,7 +40,8 @@
         "googleMaps": {
           "apiKey" : "AIzaSyBdQJlVyY8fWqWo9709y3gLpB8DWsKJLnw"
         }
-      }
+      },
+      "permissions": []
     }
   }
 }
