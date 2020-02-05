@@ -86,8 +86,8 @@ export default class Loginscreen extends Component {
                 <Logo style={{flex: 1}}/>
                 <SocialIcon
                     title='Sign in with google'
-                    onPress={this.signInWithGoogleAsync}
-                    button={true}
+                    onPress={() => (this.signInWithGoogleAsync())}
+                    button
                     light
                     type='google'
                     style={styles.button}
@@ -112,6 +112,7 @@ const styles = StyleSheet.create({
         width: Dimensions.get('screen').width,
     },
     button: {
+        zIndex: 20,
         marginBottom: normalize(200),
         width: normalize(250)
     }
