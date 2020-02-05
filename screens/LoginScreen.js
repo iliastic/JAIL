@@ -86,7 +86,7 @@ export default class Loginscreen extends Component {
                 <Logo style={{flex: 1}}/>
                 <SocialIcon
                     title='Sign in with google'
-                    onPress={() => (this.signInWithGoogleAsync())}
+                    onPress={() => {this.signInWithGoogleAsync();}}
                     button
                     light
                     type='google'
